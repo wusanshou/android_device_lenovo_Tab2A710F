@@ -17,7 +17,7 @@ TARGET_BOOTLOADER_BOARD_NAME := Tab2A710F
 
 BOARD_KERNEL_CMDLINE := 		# pas teste. d'apres la config du boot
 BOARD_KERNEL_BASE := 0x80000000		# teste. d'apres la config du boot. pas de boot...
-#BOARD_KERNEL_BASE := 0x01D80000	# teste, reboot auto. d'apres le scatter
+#BOARD_KERNEL_BASE := 0x01D80000	# teste, reboot auto au bout de qqes secondes. d'apres le scatter
 BOARD_KERNEL_PAGESIZE := 2048		# pas teste. d'apres la config du boot
 BOARD_KERNEL_OFFSET := 00008000		# pas teste. d'apres la config du boot
 BOARD_RAMDISK_OFFSET := 04000000	# pas teste. d'apres la config du boot
