@@ -38,12 +38,14 @@ BOARD_FLASH_BLOCK_SIZE := 131072	# BOARD_KERNEL_PAGESIZE * 64 trouve sur un foru
 BOARD_USES_UBOOT := true		# pas sur mais probable
 BOARD_KERNEL_IMAGE_NAME := uImage	# pas sur, utile ?
 
-#BOARD_HAS_LARGE_FILESYSTEM := true	# pas sur, utile ?
+BOARD_HAS_LARGE_FILESYSTEM := true	# pas sur, utile ?
 TARGET_USERIMAGES_USE_EXT4 := true
 GET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
-TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/kernel
-#TARGET_KERNEL_CONFIG := cyanogenmod_Tab2A710F_defconfig	# pas teste
+#TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/kernel  # Use this to reuse a pre-built kernel
+TARGET_KERNEL_CONFIG := bitland8127_tb_l_defconfig		  # config file located in kernel/lenovo/a710f/arch/arm/configs
+#TARGET_KERNEL_CONFIG := bitland8127_tb_l_debug_defconfig  #the same in debug mode, if needed
+
 
 
 # Ajouts divers...
@@ -58,7 +60,7 @@ BOARD_HAVE_BLUETOOTH := true
 TARGET_NO_FACTORYIMAGE := true
 TARGET_KMODULES := true
 BOARD_USES_MTK_AUDIO := true
-BOARD_EGL_CFG := vendor/lenovo/Tab2A710F/proprietary/system/lib/egl/egl.cfg
+BOARD_EGL_CFG := vendor/lenovo/a710f/proprietary/system/lib/egl/egl.cfg
 BUILD_EMULATOR_OPENGL := true
 BUILD_EMULATOR_OPENGL_DRIVER := true
 
