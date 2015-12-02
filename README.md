@@ -3,3 +3,7 @@
 WORK IN PROGRESS
 
 DO NOT USE
+
+Use branch cm-12 for CyanogenMod
+
+Use branch omnirom for Omnirom
