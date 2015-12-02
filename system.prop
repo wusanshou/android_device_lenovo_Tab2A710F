@@ -11,12 +11,12 @@ ro.product.device=Tab2A7-10F
 ro.product.board=Tab2A7-10F
 ro.product.custname=Lenovo TAB 2 A7-10F
 ro.product.manufacturer=LENOVO
-ro.product.locale.language=en
-ro.product.locale.region=GB
+ro.product.locale.language=fr
+ro.product.locale.region=FR
 ro.wifi.channels=
 ro.board.platform=mt8127
 # ro.build.product is obsolete; use ro.product.device
-ro.build.product=adaml
+ro.build.product=Tab2A7-10F
 # PROJECTCONFIG=adaml_en
 persist.sys.timezone=Europe/Paris
 
@@ -69,7 +69,7 @@ ro.sys.usb.charging.only=yes
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
-ro.com.android.dateformat=MM-dd-yyyy
+ro.com.android.dateformat=dd-MM-yyyy
 ro.config.ringtone=Ring_Synth_04.ogg
 ro.config.notification_sound=Notice.ogg
 ro.carrier=unknown
@@ -77,7 +77,10 @@ ro.config.alarm_alert=Dreamland.mp3
 dolby.monospeaker=true
 drm.service.enabled=true
 ro.mediatek.platform=MT8127
-ro.adb.secure=1
+#
+# Use declaration from BoardConfig.mk
+#ro.adb.secure=1
+#
 persist.radio.combo.chipid=-1
 mediatek.wlan.chip=mediatek.wlan.module.postfix=_
 ro.btstack=blueangel
