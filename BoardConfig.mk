@@ -46,6 +46,10 @@ GET_USERIMAGES_SPARSE_EXT_DISABLED := false
 TARGET_KERNEL_CONFIG := bitland8127_tb_l_defconfig		  # config file located in kernel/lenovo/a710f/arch/arm/configs
 #TARGET_KERNEL_CONFIG := bitland8127_tb_l_debug_defconfig  #the same in debug mode, if needed
 
+# Recovery
+TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
+RECOVERY_FSTAB_VERSION := 2
+#TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/Tab2A710F/recovery/kernel
 
 
 # Ajouts divers...

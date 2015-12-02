@@ -2,7 +2,7 @@
 PRODUCT_RELEASE_NAME := Tab2A710F
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+#$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/lenovo/Tab2A710F/device_Tab2A710F.mk)
