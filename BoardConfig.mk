@@ -65,8 +65,7 @@ BOARD_HAVE_BLUETOOTH := true
 TARGET_NO_FACTORYIMAGE := true
 TARGET_KMODULES := true
 BOARD_USES_MTK_AUDIO := true
-BOARD_EGL_CFG := vendor/lenovo/a710f/proprietary/system/lib/egl/egl.cfg
-#BOARD_EGL_CFG := device/acer/a200/prebuilt/etc/egl.cfg
+BOARD_EGL_CFG := device/lenovo/Tab2A710F/prebuilt/etc/egl.cfg
 BUILD_EMULATOR_OPENGL := true
 BUILD_EMULATOR_OPENGL_DRIVER := true
 
