@@ -55,28 +55,17 @@ RECOVERY_FSTAB_VERSION := 2
 # Ajouts divers...
 BOARD_HAS_NO_SELECT_BUTTON := true
 USE_OPENGL_RENDERER := true
-DEVICE_RESOLUTION := 600x1024
+DEVICE_RESOLUTION := 1024x600
 BOARD_HAVE_BLUETOOTH := true
-
 
 # depuis le pack Lenovo KitKat
 #USE_CAMERA_STUB := true
 TARGET_NO_FACTORYIMAGE := true
 TARGET_KMODULES := true
 BOARD_USES_MTK_AUDIO := true
-BOARD_EGL_CFG := vendor/lenovo/a710f/proprietary/system/lib/egl/egl.cfg
+#BOARD_EGL_CFG := vendor/lenovo/a710f/proprietary/system/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/acer/a200/prebuilt/etc/egl.cfg
 BUILD_EMULATOR_OPENGL := true
 BUILD_EMULATOR_OPENGL_DRIVER := true
 
-
-
-# pour adb pendant le boot, Doume59249
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.secure=0 \
-    persist.sys.strictmode.visual=0
-ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
-ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.visual=0
-# To allow adb during boot sequence
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
-ADDITIONAL_DEFAULT_PROPERTIES += ro.debuggable=1
 
