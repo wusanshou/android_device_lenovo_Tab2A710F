@@ -5,7 +5,7 @@ USE_CAMERA_STUB := true
 
 TARGET_ARCH := arm
 TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := unknown
+#TARGET_BOARD_PLATFORM := unknown
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -65,8 +65,8 @@ BOARD_HAVE_BLUETOOTH := true
 TARGET_NO_FACTORYIMAGE := true
 TARGET_KMODULES := true
 BOARD_USES_MTK_AUDIO := true
-#BOARD_EGL_CFG := vendor/lenovo/a710f/proprietary/system/lib/egl/egl.cfg
-BOARD_EGL_CFG := device/acer/a200/prebuilt/etc/egl.cfg
+BOARD_EGL_CFG := vendor/lenovo/a710f/proprietary/system/lib/egl/egl.cfg
+#BOARD_EGL_CFG := device/acer/a200/prebuilt/etc/egl.cfg
 BUILD_EMULATOR_OPENGL := true
 BUILD_EMULATOR_OPENGL_DRIVER := true
 
