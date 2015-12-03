@@ -42,6 +42,8 @@ BOARD_HAS_LARGE_FILESYSTEM := true	# pas sur, utile ?
 TARGET_USERIMAGES_USE_EXT4 := true
 GET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
+TARGET_BOARD_PLATFORM := mt8127
+TARGET_BOARD_PLATFORM_GPU := mali-450
 #TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel  # Use this to reuse a pre-built kernel
 TARGET_KERNEL_CONFIG := bitland8127_tb_l_defconfig		  # config file located in kernel/lenovo/a710f/arch/arm/configs
 #TARGET_KERNEL_CONFIG := bitland8127_tb_l_debug_defconfig  #the same in debug mode, if needed
