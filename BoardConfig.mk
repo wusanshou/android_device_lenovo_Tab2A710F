@@ -36,7 +36,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472
 
 BOARD_FLASH_BLOCK_SIZE := 131072	# BOARD_KERNEL_PAGESIZE * 64 trouve sur un forum, valeur generee par CM
 BOARD_USES_UBOOT := true		# pas sur mais probable
-BOARD_KERNEL_IMAGE_NAME := uImage	# pas sur, utile ?
+#BOARD_KERNEL_IMAGE_NAME := uImage	# not usable with Omnirom
 
 BOARD_HAS_LARGE_FILESYSTEM := true	# pas sur, utile ?
 TARGET_USERIMAGES_USE_EXT4 := true
