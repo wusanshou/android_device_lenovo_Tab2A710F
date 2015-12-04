@@ -18,10 +18,10 @@ TARGET_BOOTLOADER_BOARD_NAME := Tab2A710F
 BOARD_KERNEL_CMDLINE := 		# pas teste. d'apres la config du boot
 BOARD_KERNEL_BASE := 0x80000000		# teste. d'apres la config du boot. pas de boot...
 #BOARD_KERNEL_BASE := 0x01D80000	# teste, reboot auto au bout de qqes secondes. d'apres le scatter
-BOARD_KERNEL_PAGESIZE := 2048		# pas teste. d'apres la config du boot
-BOARD_KERNEL_OFFSET := 00008000		# pas teste. d'apres la config du boot
-BOARD_RAMDISK_OFFSET := 04000000	# pas teste. d'apres la config du boot
-BOARD_TAGS_OFFSET := 00000100		# pas teste. d'apres la config du boot
+BOARD_KERNEL_PAGESIZE := 0x00000800	# pas teste. d'apres la config du boot
+BOARD_KERNEL_OFFSET := 0x00008000	# pas teste. d'apres la config du boot
+BOARD_RAMDISK_OFFSET := 0x04000000	# pas teste. d'apres la config du boot
+BOARD_TAGS_OFFSET := 0x00000100		# pas teste. d'apres la config du boot
 
 # fix this up by examining /proc/mtd on a running device
 #BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216 #0x1000000
@@ -52,6 +52,8 @@ TARGET_KERNEL_CONFIG := bitland8127_tb_l_defconfig		  # config file located in k
 TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
 RECOVERY_FSTAB_VERSION := 2
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/Tab2A710F/recovery/kernel
+RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
+#TARGET_PREBUILT_RECOVERY_KERNEL := path/to/kernel
 
 
 # Ajouts divers...
