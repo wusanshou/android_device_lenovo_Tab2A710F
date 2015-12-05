@@ -23,19 +23,21 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 # ToDo : see if this parameter can be changed to match the Lenovo's name of Board
 TARGET_BOOTLOADER_BOARD_NAME := Tab2A710F
 
-BOARD_KERNEL_CMDLINE :=               # pas teste. d'apres la config du boot
-BOARD_KERNEL_BASE := 0x80000000			  # teste. d'apres la config du boot...
-BOARD_KERNEL_PAGESIZE := 0x00000800		# = 2048
-BOARD_KERNEL_OFFSET := 0x00008000		  # pas teste. d'apres la config du boot
+BOARD_KERNEL_CMDLINE :=             # pas teste. d'apres la config du boot
+BOARD_KERNEL_BASE := 0x80000000			# teste. d'apres la config du boot...
+BOARD_KERNEL_PAGESIZE := 2048		    # = 2048 (doit rester en decimal)
+BOARD_KERNEL_OFFSET := 0x00008000		# pas teste. d'apres la config du boot
 BOARD_RAMDISK_OFFSET := 0x04000000	  # pas teste. d'apres la config du boot
 BOARD_TAGS_OFFSET := 0x00000100		    # pas teste. d'apres la config du boot
 
-# fix this up by examining /proc/mtd on a running device
-BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472
-BOARD_FLASH_BLOCK_SIZE := 131072	# BOARD_KERNEL_PAGESIZE * 64 trouve sur un forum, valeur generee par CM
+# Values displayed by MTK Droid Tools, from a tablet running KitKat Stock Rom
+BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216       # = 16MB (OK with MTKDroidTools value)
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216   # = 16MB (OK with MTKDroidTools value)
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736   # = 1,5 GB  (OK with MTKDroidTools value)
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472 # = 3 GB sur 5,5 GB max  (OK with MTKDroidTools value)
+
+BOARD_FLASH_BLOCK_SIZE := 0x020000	           # BOARD_KERNEL_PAGESIZE * 64 trouve sur un forum, valeur generee par CM
+
 
 BOARD_USES_UBOOT := true		# pas sur mais probable
 
