@@ -1,5 +1,8 @@
 # BoardConfig.mk for Lenovo Tab2 A7-10F (Omnirom)
 
+# A laisser en premier pour être éventuellement écrasé par BoardConfigVendor
+USE_CAMERA_STUB := true
+
 # inherit from the proprietary version
 -include vendor/lenovo/Tab2A710F/BoardConfigVendor.mk
 
@@ -59,7 +62,6 @@ RECOVERY_FSTAB_VERSION := 2
 RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
 
 # Some additional features...
-USE_CAMERA_STUB := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 USE_OPENGL_RENDERER := true
 DEVICE_RESOLUTION := 1024x600
