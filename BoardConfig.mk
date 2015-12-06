@@ -38,6 +38,11 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472 # = 3 GB sur 5,5 GB max  (OK wi
 
 BOARD_FLASH_BLOCK_SIZE := 0x020000	           # BOARD_KERNEL_PAGESIZE * 64 trouve sur un forum, valeur generee par CM
 
+# Needed for Android 6 ###########################
+BOARD_CACHEIMAGE_PARTITION_SIZE := 132120576      # = 0x07e00000 = 128MB
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
+##################################################
 
 BOARD_USES_UBOOT := true		# pas sur mais probable
 
