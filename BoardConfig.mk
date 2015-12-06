@@ -17,6 +17,8 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a7
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
+#ARCH_ARM_HAVE_NEON := true		# A tester
+
 
 ################################# Define Flash topography 
 
@@ -44,11 +46,19 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 ##################################################
 
-BOARD_USES_UBOOT := true		# pas sur mais probable
-
 BOARD_HAS_LARGE_FILESYSTEM := true	# pas sur, utile ?
 TARGET_USERIMAGES_USE_EXT4 := true
 GET_USERIMAGES_SPARSE_EXT_DISABLED := false
+
+## Boot
+BOARD_USES_UBOOT := true                # pas sur mais probable
+# init
+#TARGET_PROVIDES_INIT_RC := true                        # A tester
+#HAVE_AEE_FEATURE := yes                                # A tester
+#BUILD_MTK_INIT := true                                 # A tester
+#MTK_KERNEL_POWER_OFF_CHARGING := true                  # A tester
+#BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER)/boot.mk    # A tester
+
 
 ############################## Kernel parameters to use ##########
 # activate following parameter to use a prebuilt kernel
@@ -68,16 +78,34 @@ RECOVERY_FSTAB_VERSION := 2
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/Tab2A710F/recovery/kernel
 RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
 
+
+# GFX - inspire de https://github.com/shutt1e/android_device_phonepad/blob/master/BoardConfig.mk )
+#MTK_HWC_CHIP := mt8127		# A tester
+#MTK_HWC_SUPPORT := true		# A tester
+#MTK_WFD_SUPPORT := true         # A tester
+#MTK_PQ_SUPPORT := true         # A tester
+#MTK_ION_SUPPORT := true         # A tester
+
+# EGL settings
+BOARD_EGL_CFG := device/lenovo/Tab2A710F/prebuilt/etc/egl.cfg
+USE_OPENGL_RENDERER := true
+BUILD_EMULATOR_OPENGL := true
+BUILD_EMULATOR_OPENGL_DRIVER := true
+DEVICE_RESOLUTION := 1024x600           # A tester, d'apres http://forum.xda-developers.com/showthread.php?t=1943625, il faut 600x1024 pour TWRP
+
+# audio
+#TARGET_PROVIDES_LIBAUDIO := true	# A tester
+BOARD_USES_MTK_AUDIO := true
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+
+
 # Some additional features...
 BOARD_HAS_NO_SELECT_BUTTON := true
-USE_OPENGL_RENDERER := true
-DEVICE_RESOLUTION := 1024x600
-BOARD_HAVE_BLUETOOTH := true
 
 # From Lenovo's KitKat OSC package
 TARGET_NO_FACTORYIMAGE := true
 TARGET_KMODULES := true
-BOARD_USES_MTK_AUDIO := true
-BOARD_EGL_CFG := device/lenovo/Tab2A710F/prebuilt/etc/egl.cfg
-BUILD_EMULATOR_OPENGL := true
-BUILD_EMULATOR_OPENGL_DRIVER := true
+
+
