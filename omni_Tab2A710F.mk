@@ -1,6 +1,9 @@
 # Release name
 PRODUCT_RELEASE_NAME := Tab2A710F
 
+# Sign the build (instead 'HOMEMADE' by default)
+ROM_BUILDTYPE := PixNDom
+
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
