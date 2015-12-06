@@ -57,7 +57,7 @@ BOARD_USES_UBOOT := true                # pas sur mais probable
 #HAVE_AEE_FEATURE := yes                                # A tester
 #BUILD_MTK_INIT := true                                 # A tester
 #MTK_KERNEL_POWER_OFF_CHARGING := true                  # A tester
-#BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER)/boot.mk    # A tester
+#BOARD_CUSTOM_BOOTIMG_MK := device/lenovo/Tab2A710F/boot.mk    # A tester
 
 
 ############################## Kernel parameters to use ##########
@@ -81,17 +81,18 @@ RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
 
 # GFX - inspire de https://github.com/shutt1e/android_device_phonepad/blob/master/BoardConfig.mk )
 #MTK_HWC_CHIP := mt8127		# A tester
-#MTK_HWC_SUPPORT := true		# A tester
-#MTK_WFD_SUPPORT := true         # A tester
+#MTK_HWC_SUPPORT := true	# A tester
+#MTK_WFD_SUPPORT := true	# A tester
 #MTK_PQ_SUPPORT := true         # A tester
-#MTK_ION_SUPPORT := true         # A tester
+#MTK_ION_SUPPORT := true	# A tester
 
 # EGL settings
 BOARD_EGL_CFG := device/lenovo/Tab2A710F/prebuilt/etc/egl.cfg
 USE_OPENGL_RENDERER := true
 BUILD_EMULATOR_OPENGL := true
 BUILD_EMULATOR_OPENGL_DRIVER := true
-DEVICE_RESOLUTION := 1024x600           # A tester, d'apres http://forum.xda-developers.com/showthread.php?t=1943625, il faut 600x1024 pour TWRP
+
+DEVICE_RESOLUTION := 1024x600		# A tester, d'apres http://forum.xda-developers.com/showthread.php?t=1943625, il faut 600x1024 pour TWRP
 
 # audio
 #TARGET_PROVIDES_LIBAUDIO := true	# A tester
