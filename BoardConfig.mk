@@ -74,6 +74,8 @@ TARGET_KERNEL_CONFIG := bitland8127_tb_l_defconfig
 
 # Recovery (TWRP)
 TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
+#TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab	# format pour que TWRP démarre sans rebooter automatiquement, mais bloque pendant la compilation
+
 RECOVERY_FSTAB_VERSION := 2
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/Tab2A710F/recovery/kernel
 RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
