@@ -84,6 +84,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.usb.rc:root/init.usb.rc \
     $(LOCAL_PATH)/ramdisk/FWUpgradeInit.rc:root/FWUpgradeInit.rc \
     $(LOCAL_PATH)/ramdisk/init.xlog.rc:root/init.xlog.rc \
+    $(LOCAL_PATH)/ramdisk/factory_init.project.rc:root/factory_init.project.rc \
+    $(LOCAL_PATH)/ramdisk/factory_init.rc:root/factory_init.rc \
+    $(LOCAL_PATH)/ramdisk/init.aee.customer.rc:root/init.aee.customer.rc \
+    $(LOCAL_PATH)/ramdisk/init.charging.rc:root/init.charging.rc \
+    $(LOCAL_PATH)/ramdisk/init.environ.rc:root/init.environ.rc \
+    $(LOCAL_PATH)/ramdisk/init.project.rc:root/init.project.rc \
+    $(LOCAL_PATH)/ramdisk/init.protect.rc:root/init.protect.rc \
+    $(LOCAL_PATH)/ramdisk/init.modem.rc:root/init.modem.rc \
+    $(LOCAL_PATH)/ramdisk/init.ssd.rc:root/init.ssd.rc \
+    $(LOCAL_PATH)/ramdisk/init.trace.rc:root/init.trace.rc \
+    $(LOCAL_PATH)/ramdisk/meta_init.rc:root/meta_init.rc \
+    $(LOCAL_PATH)/ramdisk/meta_init.modem.rc:root/meta_init.modem.rc \
+    $(LOCAL_PATH)/ramdisk/meta_init.project.rc:root/meta_init.project.rc \
     $(LOCAL_PATH)/ramdisk/fstab:root/fstab
     
 # firmware : is firmware to be loaded for A7-10F ????
