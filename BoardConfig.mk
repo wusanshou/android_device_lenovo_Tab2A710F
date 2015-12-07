@@ -81,6 +81,10 @@ RECOVERY_FSTAB_VERSION := 1
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/Tab2A710F/recovery/kernel
 RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
 TW_THEME=portrait_hdpi
+RECOVERY_VARIANT := twrp
+#TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"    # A tester, trouver la bonne valeur
+#RECOVERY_GRAPHICS_USE_LINELENGTH := true       # A tester (this line is supposed to improve graphics on some devices)
+
 
 
 # GFX - inspire de https://github.com/shutt1e/android_device_phonepad/blob/master/BoardConfig.mk )
