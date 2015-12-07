@@ -78,7 +78,7 @@ TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
 RECOVERY_FSTAB_VERSION := 1
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/Tab2A710F/recovery/kernel
 RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
-TW_THEME=portrait_hdpi		# le theme du TWRP existant qui fonctionne est en 720x1280
+TW_THEME=portrait_hdpi
 
 
 # GFX - inspire de https://github.com/shutt1e/android_device_phonepad/blob/master/BoardConfig.mk )
