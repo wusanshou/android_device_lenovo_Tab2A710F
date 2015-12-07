@@ -43,7 +43,7 @@ BOARD_FLASH_BLOCK_SIZE := 0x020000	           # BOARD_KERNEL_PAGESIZE * 64 trouv
 # Needed for Android 6 ###########################
 BOARD_CACHEIMAGE_PARTITION_SIZE := 132120576      # = 0x07e00000 = 128MB
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
+# TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true   #Not supported by 5.1
 ##################################################
 
 BOARD_HAS_LARGE_FILESYSTEM := true	# pas sur, utile ?
