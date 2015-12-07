@@ -17,7 +17,7 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a7
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
-#ARCH_ARM_HAVE_NEON := true		# A tester
+ARCH_ARM_HAVE_NEON := true		# A tester - n'a pas empeche la compilation du recovery, et assez logique
 
 
 ################################# Define Flash topography 
@@ -50,7 +50,9 @@ BOARD_HAS_LARGE_FILESYSTEM := true	# pas sur, utile ?
 TARGET_USERIMAGES_USE_EXT4 := true
 GET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
-## Boot
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+############################### Boot
 BOARD_USES_UBOOT := true                # pas sur mais probable
 # init
 #TARGET_PROVIDES_INIT_RC := true                        # A tester
@@ -72,7 +74,7 @@ TARGET_KERNEL_CONFIG := bitland8127_tb_l_defconfig
 #TARGET_KERNEL_CONFIG := bitland8127_tb_l_debug_defconfig
 ###################################################################
 
-# Recovery (TWRP)
+############################## Recovery (TWRP)
 #TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
 TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
 RECOVERY_FSTAB_VERSION := 1
@@ -102,10 +104,9 @@ BOARD_USES_MTK_AUDIO := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-
-
-# Some additional features...
-BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_HAVE_BLUETOOTH_MTK := true        # A tester
+#BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true    # A tester
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/micromax/a106/bluetooth	# A tester
 
 # From Lenovo's KitKat OSC package
 TARGET_NO_FACTORYIMAGE := true
