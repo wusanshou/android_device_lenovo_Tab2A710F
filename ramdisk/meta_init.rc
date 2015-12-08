@@ -3,36 +3,37 @@
 # IMPORTANT: Do not create world writable files or directories.
 # This is a common source of Android security bugs.
 #
+import /init.environ.rc
+import init.ssd.rc
+import init.no_ssd.rc
+import init.ssd_nomuser.rc
+import init.fon.rc
+import init.aee.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
-    write /proc/1/oom_adj -16
+    write /proc/1/oom_score_adj -1000
+
+    # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
+    write /sys/fs/selinux/checkreqprot 0
+
+    # Set the security context for the init process.
+    # This should occur before anything else (e.g. ueventd) is started.
+    setcon u:r:init:s0
+
+    # Set the security context of /adb_keys if present.
+    restorecon /adb_keys
 
     start ueventd
 
 # create mountpoints
     mkdir /mnt 0775 root system
     
-
-
 on init
 
 sysclktz 0
 
 loglevel 5
-    write /proc/bootprof "INIT: on init start"
-
-# setup the global environment
-    export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
-    export LD_LIBRARY_PATH /vendor/lib:/system/lib
-    export ANDROID_ROOT /system
-    export ANDROID_DATA /data
-    export ANDROID_STORAGE /storage
-
-    export ASEC_MOUNTPOINT /mnt/asec
-    export LOOP_MOUNTPOINT /mnt/obb
-
-    export USBOTG_STORAGE /storage/usbotg
 
 # Backward compatibility
     symlink /system/etc /etc
@@ -51,13 +52,9 @@ loglevel 5
     mkdir /data 0771 system system
     mkdir /cache 0770 system cache
     mkdir /config 0500 root root
-    #create mountpoint for persist partition
-    mkdir /persist 0771 system system
-
-    #Create CIP mount point
-	mkdir /custom
 
     # See storage config details at http://source.android.com/tech/storage/
+    mkdir /mnt/shell 0700 shell shell
     mkdir /mnt/media_rw 0700 media_rw media_rw
     mkdir /storage 0751 root sdcard_r
 
@@ -65,9 +62,6 @@ loglevel 5
 
     # Directory for putting things only root should see.
     mkdir /mnt/secure 0700 root root
-
-    # Create private mountpoint so we can MS_MOVE from staging
-    mount tmpfs tmpfs /mnt/secure mode=0700,uid=0,gid=0
     
     # Directory for staging bindmounts
     mkdir /mnt/secure/staging 0700 root root
@@ -90,70 +84,71 @@ loglevel 5
     write /proc/sys/kernel/sched_latency_ns 10000000
     write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000
     write /proc/sys/kernel/sched_compat_yield 1
+
+# Healthd can trigger a full boot from charger mode by signaling this
+# property when the power button is held.
+on property:sys.boot_from_charger_mode=1
+    class_stop charger
+    trigger late-init
+
+# Load properties from /system/ + /factory after fs mount.
+on load_all_props_action
+    load_all_props
+
+# Mount filesystems and start core system services.
+on late-init
+    trigger early-fs
+    trigger fs
+    trigger post-fs
+    trigger post-fs-data
+
+    # Load properties from /system/ + /factory after fs mount. Place
+    # this in another action so that the load will be scheduled after the prior
+    # issued fs triggers have completed.
+    trigger load_all_props_action
+
+    trigger early-boot
+    trigger boot
     
-# mount different fs start
-
-on fs_property:ro.mount.fs=YAFFS
-# mount mtd partitions
-    # Mount /system rw first to give the filesystem a chance to save a checkpoint
-    write /proc/bootprof "INIT:NAND:Mount_START"    
-    mount yaffs2 mtd@system /system
-    mount yaffs2 mtd@system /system ro remount
-    mount yaffs2 mtd@userdata /data nosuid nodev
-    write /proc/bootprof "INIT:NAND:Mount_END"
-
-on fs_property:ro.mount.fs=EXT4
+on fs
     write /proc/bootprof "INIT:eMMC:Mount_START"
-    exec /sbin/e2fsck -p /emmc@android
-    # Mount /system rw first to give the filesystem a chance to save a checkpoint
-    #mount ext4 emmc@android /system wait commit=1,data=journal,noauto_da_alloc
-    mount ext4 /emmc@android /system wait commit=1,noauto_da_alloc
-    mount ext4 /emmc@android /system noatime ro remount wait 
-    exec /sbin/e2fsck -pfD /emmc@usrdata
-    exec /sbin/tune2fs -O has_journal /emmc@usrdata
-    exec /system/bin/ext4_resize
-    mount ext4 /emmc@usrdata /data noatime nosuid nodev wait commit=1,nodelalloc,noauto_da_alloc	
-    # mount cip partitions
-    exec /sbin/e2fsck -p /emmc@custom
-	mount ext4 /emmc@custom /custom
+    mount_all /fstab.mt8127
     write /proc/bootprof "INIT:eMMC:Mount_END"
 
-on fs_property:ro.mount.fs=UBIFS
-    write /proc/bootprof "INIT:NAND:Mount_START"
-    mount ubifs ubi@system /system
-    mount ubifs ubi@system /system ro remount sync
-    mount ubifs ubi@userdata /data nosuid nodev sync
-    mount ubifs ubi@cache /cache nosuid nodev sync
-    write /proc/bootprof "INIT:NAND:Mount_END"
-# mount different fs end
-
-# mount partition by some option
-on fs_property:ro.persist.partition.support=yes
-    write /proc/bootprof "INIT:PERSISIT:Mount_START"
-    exec /sbin/e2fsck -pfD /emmc@persist
-    exec /sbin/tune2fs -O has_journal /emmc@persist
-    mount ext4 /emmc@persist /persist noatime nosuid nodev wait commit=1,nodelalloc,noauto_da_alloc
-    write /proc/bootprof "INIT:PERSISIT:Mount_END"
+# mount secro partition
+#    mount yaffs2 mtd@secstatic /system/secro ro
+#    mount ext4 /dev/block/platform/mtk-msdc.0/by-name/SEC_RO /system/secro ro
 
 on post-fs
     # once everything is setup, no need to modify /
-    mount rootfs rootfs / rw remount
+    mount rootfs rootfs / ro remount
     
     # We chown/chmod /cache again so because mount is run as root + defaults
     chown system cache /cache
     chmod 0770 /cache
+    # We restorecon /cache in case the cache partition has been reset.
+    restorecon_recursive /cache
 
     #change permissions on kmsg & sysrq-trigger so bugreports can grab kthread stacks
     chown root system /proc/kmsg
     chmod 0440 /proc/kmsg
 
+    # make the selinux kernel policy world-readable
+    chmod 0444 /sys/fs/selinux/policy
+
+    # create the lost+found directories, so as to enforce our permissions
+    mkdir /cache/lost+found 0770 root root
+
+on post-fs-data
+    # We chown/chmod /data again so because mount is run as root + defaults
     chown system system /data
     chmod 0771 /data
-    chown system system /persist
-    chmod 0771 /persist
+    # We restorecon /data in case the userdata partition has been reset.
+    restorecon /data
+
 
 # create basic filesystem structure
-		mkdir /data/nvram 2770 root nvram
+		mkdir /data/nvram 2770 root system
     mkdir /data/misc 01771 system misc
     mkdir /data/misc/bluetoothd 0770 bluetooth bluetooth
     mkdir /data/misc/bluetooth 0770 system system
@@ -202,8 +197,10 @@ on post-fs
     # OpenCORE proxy config
     chmod 0666 /data/http-proxy-cfg
 
-    # OpenCORE player config
-    chmod 0666 /etc/player.cfg
+	# OpenCORE player config
+	chmod 0666 /etc/player.cfg
+
+start NvRAMAgent
 
     # WiFi
     mkdir /data/misc/wifi 0770 system wifi
@@ -215,6 +212,14 @@ on post-fs
     # Turn off wifi by default
     write /sys/class/rfkill/rfkill1/state 0
 
+
+    
+    # Set this property so surfaceflinger is not started by system_init
+    setprop system_init.startsurfaceflinger 0
+
+    #otp
+    chmod 0660 /dev/otp
+    chown root system /dev/otp
 
     # Touch Panel
     chown system system /sys/touchpanel/calibration
@@ -232,7 +237,6 @@ on post-fs
     # RTC
     mkdir /data/misc/rtc 0770 system system
 
-
     # M4U
     #insmod /system/lib/modules/m4u.ko
     #mknod /dev/M4U_device c 188 0
@@ -241,66 +245,66 @@ on post-fs
     # Sensor
     chmod 0666 /dev/sensor
 
-    #VideoCodec
-    #insmod /system/lib/modules/vcodec_kernel_driver.ko
-    mknod /dev/Vcodec c 160 0
-    chmod 0660 /dev/Vcodec
-    chown system media /dev/Vcodec
+    # GPIO
+    chmod 0666 /dev/mtgpio
 
     # Android SEC related device nodes
+    insmod /system/lib/modules/sec.ko
     mknod /dev/sec c 182 0
     chmod 0660 /dev/sec
     chown root system /dev/sec
     
     # device info interface
     #insmod /system/lib/modules/devinfo.ko
-    mknod /dev/devmap c 196 0;
+    #mknod /dev/devmap c 196 0;
     chmod 0440 /dev/devmap
     chown root system /dev/devmap
-
-   #change partition permission
-    chmod 0640 /emmc@sec_ro
-    chown root system /emmc@sec_ro
-
-    chmod 0640 /mtd@sec_ro
-    chown root system /mtd@sec_ro
-
-    chmod 0640 /mtd@preloader
-    chown root system /mtd@preloader
-
-    chmod 0660 /mtd@pro_info
-    chown root system /mtd@pro_info
-
-    chmod 0640 /mtd@bootimg
-    chown root system /mtd@bootimg
-
-    chmod 0640 /mtd@recovery
-    chown root system /mtd@recovery
-
-    chmod 0660 /mtd@nvram
-    chown root system /mtd@nvram
-
-    chmod 0660 /mtd@seccfg
-    chown root system /mtd@seccfg
-
-    chmod 0660 /mtd@misc
-    chown root system /mtd@misc
-  
-    chmod 0666 /dev/uio0
-
-    #otp
-    chmod 0660 /proc/driver/otp
-    chown root system /proc/driver/otp
-
+    
     # change key_provisioning 
     mkdir /data/key_provisioning
     chmod 0770 /data/key_provisioning
-    chown system system /data/key_provisioning    
-    
-on post-fs-data
+    chown system system /data/key_provisioning
 
-# Encrypt phone function
+    # Separate location for storing security policy files on data
+    mkdir /data/security 0711 system system
+
+    # Reload policy from /data/security if present.
+    setprop selinux.reload_policy 1
+
+    # Set SELinux security contexts on upgrade or policy update.
+    restorecon_recursive /data
+
+    # If there is no fs-post-data action in the init.<device>.rc file, you
+    # must uncomment this line, otherwise encrypted filesystems
+    # won't work.
+    # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
+
+on boot
+   chown root /remount.sh
+   chmod 700 /remount.sh
+   exec /remount.sh
+
+start drvbd
+
+# basic network init
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    class_start default
+    class_start core
+
+on nonencrypted
+    class_start main
+    class_start late_start
+
+on property:vold.decrypt=trigger_default_encryption
+    start defaultcrypto
+
+on property:vold.decrypt=trigger_encryption
+    start surfaceflinger
+    start encrypt
 
 on property:vold.decrypt=trigger_reset_main
     class_reset main
@@ -315,59 +319,86 @@ on property:vold.decrypt=trigger_restart_min_framework
     class_start main
 
 on property:vold.decrypt=trigger_restart_framework
-    start permission_check
+    start nvram_daemon
     class_start main
     class_start late_start
+    start permission_check
 
 on property:vold.decrypt=trigger_shutdown_framework
     class_reset late_start
-    class_reset default
     class_reset main
-
-on boot
-		
-   chown root /remount.sh
-   chmod 700 /remount.sh
-   exec /remount.sh
-
-   start drvbd
-
-# basic network init
-    ifup lo
-    hostname localhost
-    domainname localdomain
-
-    class_start default
-    start vold
-    start sdcard
 
 service ueventd /sbin/ueventd
     class core
     critical
+    seclabel u:r:ueventd:s0
+
+service logd /system/bin/logd
+    class core
+    socket logd stream 0666 logd logd
+    socket logdr seqpacket 0666 logd logd
+    socket logdw dgram 0222 logd logd
+    seclabel u:r:logd:s0
 
 service console /system/bin/sh
     class core
     console
     disabled
-    user root
-    group log
+    user shell
+    group shell log
+    seclabel u:r:shell:s0
 
+on property:sys.powerctl=*
+    powerctl ${sys.powerctl}
 
-service meta_tst /sbin/meta_tst	
+on property:ro.debuggable=1
+    start console
 
+# adbd is controlled via property triggers in init.<platform>.usb.rc
+service adbd /sbin/adbd --root_seclabel=u:r:su:s0
+    class core
+    socket adbd stream 660 system system
+    disabled
+    seclabel u:r:adbd:s0
+
+service vold /system/bin/vold
+    class core
+    socket vold stream 0660 root mount
+    ioprio be 2
+
+# One shot invocation to deal with encrypted volume.
+service defaultcrypto /system/bin/vdc --wait cryptfs mountdefaultencrypted
+    disabled
+    oneshot
+    # vold will set vold.decrypt to trigger_restart_framework (default
+    # encryption) or trigger_restart_min_framework (other encryption)
+
+# One shot invocation to encrypt unencrypted volumes
+service encrypt /system/bin/vdc --wait cryptfs enablecrypto inplace default
+    disabled
+    oneshot
+    # vold will set vold.decrypt to trigger_restart_framework (default
+    # encryption)
+
+service meta_tst /system/bin/meta_tst
+
+#drm operation server
 service kisd /system/bin/kisd
 
+service servicemanager /system/bin/servicemanager
+    class core
+    user system
+    group system
+    critical
 service nvram_daemon /system/bin/nvram_daemon
-    user nvram
-    group nvram system
+    class main
+    user root
+    group system
     oneshot
 
-# DFO (Begin)
-service featured /system/bin/featured
-    user nvram
-    group nvram system
-    socket dfo stream 660 nvram system
-# DFO (End)
+service NvRAMAgent /system/bin/nvram_agent_binder
+		user system
+		group system
 
 service drvbd /system/bin/drvbd
     class main
@@ -375,40 +406,34 @@ service drvbd /system/bin/drvbd
     group system
 
 service debuggerd /system/bin/debuggerd
+    class main
+
+service debuggerd64 /system/bin/debuggerd64
+    class main
+
 
 service mobile_log_d /system/bin/mobile_log_d
-    disabled
-    oneshot
+    class main
 
-on property:sys.mtk.disable.mobile_log_d=1    
+on property:ro.boot.mblogenable=0    
     stop mobile_log_d    
 
-on property:sys.mtk.disable.mobile_log_d=0
+on property:ro.boot.mblogenable=1
     start mobile_log_d
 
-service vold /system/bin/vold
-    class core
-    socket vold stream 0660 root mount
-    ioprio be 2
-
-# adbd is controlled via property triggers in init.<platform>.usb.rc
-service adbd /sbin/adbd
-    class core
-    disabled
-
 #mass_storage,adb,acm
-on property:sys.usb.com_config=0
-    write /sys/class/android_usb/android0/iSerial "0123456789ABCDEF"
+on property:ro.boot.usbconfig=0
+    write /sys/class/android_usb/android0/iSerial $ro.serialno
     write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0bb4
-    write /sys/class/android_usb/android0/idProduct 0005
+    write /sys/class/android_usb/android0/idVendor 0e8d
+    write /sys/class/android_usb/android0/idProduct 2006
     write /sys/class/android_usb/android0/f_acm/instances 1
     write /sys/class/android_usb/android0/functions mass_storage,adb,acm
     write /sys/class/android_usb/android0/enable 1
     start adbd
 
 #acm
-on property:sys.usb.com_config=1
+on property:ro.boot.usbconfig=1
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/iSerial " "
     write /sys/class/android_usb/android0/idVendor 0e8d

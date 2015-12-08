@@ -1,4 +1,10 @@
 on post-fs
+
+    # trustzone related interface
+    mknod /dev/trustzone c 197 0;
+    chmod 0666 /dev/trustzone
+    chown root media /dev/trustzone
+    
 #
 # Connectivity related modules and character device nodes (Begin)
 #
@@ -17,7 +23,7 @@ on post-fs
 #   insmod /system/lib/modules/mtk_wmt_wifi.ko
 
     insmod /system/lib/modules/mtk_wmt_detect.ko
-
+    
     # Create char device file for WMT, GPS, BT, FM, WIFI
     mknod /dev/stpwmt c 190 0;
     mknod /dev/stpgps c 191 0;
@@ -27,7 +33,7 @@ on post-fs
     chown system system /dev/stpwmt
     chmod 0660 /dev/wmtdetect
  		chown system system /dev/wmtdetect
-
+ 		
     # FM Radio device, FIXME: this is not a proper way to set permissions
     chmod 0666 /dev/fm
  
@@ -42,6 +48,7 @@ on post-fs
 
 #
 # Connectivity related modules and character device nodes (Ends)
+#
 
 on boot
 
@@ -50,22 +57,17 @@ on boot
 # Connectivity related services (Begin)
 #
 
-service wmtLoader /system/bin/logwrapper /system/bin/wmt_loader
+service wmtLoader /system/bin/wmt_loader
     user root
     group root
     oneshot
     
-    
-service conn_launcher /system/bin/logwrapper /system/bin/6620_launcher -p /system/etc/firmware/
+service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
     user system
     group system
     
 
-service wlanLoader /system/bin/wlan_loader
-    user root
-    group root
-    oneshot
-
 #
 # Connectivity related services (End)
 #
+
