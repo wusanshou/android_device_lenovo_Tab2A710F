@@ -80,7 +80,7 @@ TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
 RECOVERY_FSTAB_VERSION := 1
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/Tab2A710F/recovery/kernel
 RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
-TW_THEME=portrait_hdpi
+TW_THEME := portrait_hdpi
 RECOVERY_VARIANT := twrp
 #TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"    # A tester, trouver la bonne valeur
 #RECOVERY_GRAPHICS_USE_LINELENGTH := true       # A tester (this line is supposed to improve graphics on some devices)
@@ -100,7 +100,8 @@ USE_OPENGL_RENDERER := true
 BUILD_EMULATOR_OPENGL := true
 BUILD_EMULATOR_OPENGL_DRIVER := true
 
-DEVICE_RESOLUTION := 1024x600		# A tester, d'apres http://forum.xda-developers.com/showthread.php?t=1943625, il faut 600x1024 pour TWRP
+# A tester, d'apres http://forum.xda-developers.com/showthread.php?t=1943625, il faut 600x1024 pour TWRP
+DEVICE_RESOLUTION := 1024x600 
 
 # audio
 #TARGET_PROVIDES_LIBAUDIO := true	# A tester
