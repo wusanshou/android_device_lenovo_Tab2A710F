@@ -89,7 +89,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/ramdisk/init.charging.rc:root/init.charging.rc \
     $(LOCAL_PATH)/ramdisk/init.mt8127usb.rc:root/init.mt8127usb.rc \
-    $(LOCAL_PATH)/ramdisk/init.aee.customer.rc:root/init.aee.customer.rc \
     $(LOCAL_PATH)/ramdisk/init.ssd.rc:root/init.ssd.rc \
     $(LOCAL_PATH)/ramdisk/init.zygote32.rc:root/init.zygote32.rc \
     $(LOCAL_PATH)/ramdisk/init.trace.rc:root/init.trace.rc \
