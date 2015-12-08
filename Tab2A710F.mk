@@ -98,6 +98,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/meta_init.rc:root/meta_init.rc \
     $(LOCAL_PATH)/ramdisk/meta_init.project.rc:root/meta_init.project.rc \
     $(LOCAL_PATH)/ramdisk/fstab:root/fstab
+  
+# Try to fix problem about recovery fstab
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/recovery.pix.fstab:recovery/root/fstab
     
 # firmware : is firmware to be loaded for A7-10F ????
 #PRODUCT_COPY_FILES += \
