@@ -99,9 +99,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/meta_init.project.rc:root/meta_init.project.rc \
     $(LOCAL_PATH)/ramdisk/fstab:root/fstab
   
-# Try to fix problem about recovery fstab
+# Try to fix problem about recovery fstab (TWRP with Omnirom 5.1)
+# Note that TWRP does not currently support the "fstab 2" version of fstab files seen in 4.3 or higher. 
+# You will still need to use the "old" format of fstab for TWRP (example of that format is below). 
+# To maximize TWRP's compatibility with your build tree, you can create a twrp.fstab and 
+#    use PRODUCT_COPY_FILES to place the file in /etc/twrp.fstab 
+# When TWRP boots, if it finds a twrp.fstab in the ramdisk it will rename 
+#    /etc/recovery.fstab to /etc/recovery.fstab.bak 
+#    and then rename /etc/twrp.fstab to /etc/recovery.fstab. 
+# Effectively this will "replace" the fstab 2 file that your device files are providing 
+#   with the TWRP fstab allowing you to maintain compatibility within your device files and with other recoveries.
+
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/recovery.pix.fstab:recovery/root/fstab
+    $(LOCAL_PATH)/recovery/recovery.pix.fstab:recovery/root/etc/twrp.fstab
     
 # firmware : is firmware to be loaded for A7-10F ????
 #PRODUCT_COPY_FILES += \
