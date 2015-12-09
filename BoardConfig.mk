@@ -82,7 +82,12 @@ RECOVERY_FSTAB_VERSION := 2
 #TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
 
 RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
-TW_THEME := portrait_hdpi
+
+# Workaround for 'make recoveryimage' : Modify bootable/recovery/gui/Android.mk
+# and add line 88 :
+# TW_THEME := landscape_mdpi
+# TW_THEME := landscape_hdpi
+
 RECOVERY_VARIANT := twrp
 #TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"    # A tester, trouver la bonne valeur
 #RECOVERY_GRAPHICS_USE_LINELENGTH := true       # A tester (this line is supposed to improve graphics on some devices)
