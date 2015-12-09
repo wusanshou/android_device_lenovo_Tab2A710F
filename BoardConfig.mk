@@ -75,10 +75,12 @@ TARGET_KERNEL_CONFIG := bitland8127_tb_l_defconfig
 ###################################################################
 
 ############################## Recovery (TWRP)
-#TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
-TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
-RECOVERY_FSTAB_VERSION := 1
-#TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/Tab2A710F/recovery/kernel
+# Let recovery Android.mk expect a standard V2 recovery.fstab, to put it in root
+TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
+RECOVERY_FSTAB_VERSION := 2
+# The following (true one) will be copied by Tab2A710F.mk COPY list, as etc/twrp.fstab
+#TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
+
 RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
 TW_THEME := portrait_hdpi
 RECOVERY_VARIANT := twrp
