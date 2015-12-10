@@ -111,8 +111,9 @@ PRODUCT_COPY_FILES += \
 #   with the TWRP fstab allowing you to maintain compatibility within your device files and with other recoveries.
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/recovery.pix.fstab:recovery/root/etc/twrp.fstab
-    
+    $(LOCAL_PATH)/recovery/recovery.pix.fstab:recovery/root/etc/twrp.fstab \
+    $(LOCAL_PATH)/recovery/recovery.pix.fstab:recovery/root/etc/recovery.fstab
+        
 # firmware : is firmware to be loaded for A7-10F ????
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/prebuilt/etc/bcmdhd.cal:system/vendor/firmware/bcmdhd.cal \
