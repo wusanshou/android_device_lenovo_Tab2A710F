@@ -16,9 +16,9 @@
 
 #DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-#kernel
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/kernel:kernel
+#kernel : not needed in root directory......
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/prebuilt/kernel:kernel
 
 # Set wifi-only before it's set by generic_no_telephony.mk
 WIFI_BAND := 802_11_ABG
@@ -109,7 +109,6 @@ PRODUCT_COPY_FILES += \
 #    and then rename /etc/twrp.fstab to /etc/recovery.fstab. 
 # Effectively this will "replace" the fstab 2 file that your device files are providing 
 #   with the TWRP fstab allowing you to maintain compatibility within your device files and with other recoveries.
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/recovery.pix.fstab:recovery/root/etc/twrp.fstab \
     $(LOCAL_PATH)/recovery/recovery.pix.fstab:recovery/root/etc/recovery.fstab
