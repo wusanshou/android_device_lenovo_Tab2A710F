@@ -81,6 +81,9 @@ RECOVERY_FSTAB_VERSION := 2
 # The following (true one) will be copied by Tab2A710F.mk COPY list, as etc/twrp.fstab
 #TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
 
+# -- removes the reboot bootloader button from the reboot menu
+TW_NO_REBOOT_BOOTLOADER := true 
+
 RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
 
 # Workaround for 'make recoveryimage' : Modify bootable/recovery/gui/Android.mk
