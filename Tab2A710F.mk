@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-#kernel : not needed in root directory......
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/prebuilt/kernel:kernel
+# prebuilt kernel 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/kernel:kernel
 
 # Set wifi-only before it's set by generic_no_telephony.mk
 WIFI_BAND := 802_11_ABG
