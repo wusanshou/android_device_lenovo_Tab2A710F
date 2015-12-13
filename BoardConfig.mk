@@ -64,37 +64,40 @@ BOARD_USES_UBOOT := true                # pas sur mais probable
 
 ############################## Kernel parameters to use ##########
 # activate following parameter to use a prebuilt kernel
-#TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel  
+TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel  
 
 # activate following parameter to build the normal kernel
 # config file located in kernel/lenovo/Tab2A710F/arch/arm/configs/
-TARGET_KERNEL_CONFIG := bitland8127_tb_l_defconfig		  
+#TARGET_KERNEL_CONFIG := bitland8127_tb_l_defconfig		  
 
 # activate following parameter to build a debug kernel
 #TARGET_KERNEL_CONFIG := bitland8127_tb_l_debug_defconfig
 ###################################################################
 
 ############################## Recovery (TWRP)
+# A tester, d'apres http://forum.xda-developers.com/showthread.php?t=1943625, il faut 600x1024 pour TWRP
+DEVICE_RESOLUTION := 1024x600
+
+# To use the same theme than twrp customized by Pix
+#TW_CUSTOM_THEME := device/lenovo/Tab2A710F/recovery/twres
+
+# Force use of following .rc files for recovery.img
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TARGET_RECOVERY_INITRC := device/lenovo/Tab2A710F/recovery/init.rc 
+TARGET_RECOVERY_INITRC += device/lenovo/Tab2A710F/recovery/init.recovery.usb.rc 
+TARGET_RECOVERY_INITRC += device/lenovo/Tab2A710F/recovery/ueventd.rc 
+
 # Let recovery Android.mk expect a standard V2 recovery.fstab, to put it in root
 TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
 RECOVERY_FSTAB_VERSION := 2
-# The following (true one) will be copied by Tab2A710F.mk COPY list, as etc/twrp.fstab
-#TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
-
-# -- removes the reboot bootloader button from the reboot menu
+# -- removes the reboot bootloader button from the recovery reboot menu
 TW_NO_REBOOT_BOOTLOADER := true 
 
 RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
-
-# Workaround for 'make recoveryimage' : Modify bootable/recovery/gui/Android.mk
-# and add line 88 :
-# TW_THEME := landscape_mdpi
-# TW_THEME := landscape_hdpi
-
 RECOVERY_VARIANT := twrp
-#TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"    # A tester, trouver la bonne valeur
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"    # A tester, trouver la bonne valeur
 #RECOVERY_GRAPHICS_USE_LINELENGTH := true       # A tester (this line is supposed to improve graphics on some devices)
-
+############################## End of Recovery parameters(TWRP)
 
 
 # GFX - inspire de https://github.com/shutt1e/android_device_phonepad/blob/master/BoardConfig.mk )
@@ -107,11 +110,9 @@ RECOVERY_VARIANT := twrp
 # EGL settings
 BOARD_EGL_CFG := device/lenovo/Tab2A710F/prebuilt/etc/egl.cfg
 USE_OPENGL_RENDERER := true
-BUILD_EMULATOR_OPENGL := true
-BUILD_EMULATOR_OPENGL_DRIVER := true
+BUILD_EMULATOR_OPENGL := false
+BUILD_EMULATOR_OPENGL_DRIVER := false
 
-# A tester, d'apres http://forum.xda-developers.com/showthread.php?t=1943625, il faut 600x1024 pour TWRP
-DEVICE_RESOLUTION := 1024x600 
 
 # audio
 #TARGET_PROVIDES_LIBAUDIO := true	# A tester
@@ -126,5 +127,3 @@ BOARD_HAVE_BLUETOOTH_MTK := true        # A tester
 # From Lenovo's KitKat OSC package
 TARGET_NO_FACTORYIMAGE := true
 TARGET_KMODULES := true
-
-
