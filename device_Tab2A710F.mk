@@ -9,7 +9,7 @@ DEVICE_PACKAGE_OVERLAYS += device/lenovo/Tab2A710F/overlay
 
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/lenovo/Tab2A710F/kernel
+	LOCAL_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
