@@ -1,4 +1,5 @@
 USE_CAMERA_STUB := true
+ROM_BUILDTYPE := PixNDom
 
 # inherit from the proprietary version
 -include vendor/lenovo/Tab2A710F/BoardConfigVendor.mk
@@ -85,3 +86,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.visual=0
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 ADDITIONAL_DEFAULT_PROPERTIES += ro.debuggable=1
 
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=CM_Tab2A710F \
+    BUILD_FINGERPRINT="CM_12.1_Lenovo/Tab2A710F:LYZ28J/2015000001:user/release-keys" \
+    PRIVATE_BUILD_DESC="PixNDom_Tab2A710F 5.1.1 LYZ28J 2015000001 release-keys"
