@@ -78,7 +78,7 @@ TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel
 # A tester, d'apres http://forum.xda-developers.com/showthread.php?t=1943625, il faut 600x1024 pour TWRP
 DEVICE_RESOLUTION := 1024x600
 
-# To use the same theme than twrp customized by Pix
+# To use the same theme than twrp customized by ??? (VVizard@lenovo-forum.ru ?)
 #TW_CUSTOM_THEME := device/lenovo/Tab2A710F/recovery/twres
 
 # Force use of following .rc files for recovery.img
