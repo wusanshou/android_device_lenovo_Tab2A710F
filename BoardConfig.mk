@@ -5,7 +5,6 @@ USE_CAMERA_STUB := true
 
 TARGET_ARCH := arm
 TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := unknown
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -14,6 +13,10 @@ TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
 TARGET_BOOTLOADER_BOARD_NAME := Tab2A710F
+
+# Platform
+TARGET_BOARD_PLATFORM := mt8127
+TARGET_BOARD_PLATFORM_GPU := mali-450
 
 BOARD_KERNEL_CMDLINE := 		# pas teste. d'apres la config du boot
 BOARD_KERNEL_BASE := 0x80000000		# teste. d'apres la config du boot. pas de boot...
@@ -55,6 +58,9 @@ TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel
 TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
 RECOVERY_FSTAB_VERSION := 2
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/lenovo/Tab2A710F/recovery/kernel
+
+
+
 
 
 # Ajouts divers...
