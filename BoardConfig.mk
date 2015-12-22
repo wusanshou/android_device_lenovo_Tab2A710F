@@ -25,6 +25,9 @@ ARCH_ARM_HAVE_NEON := true		# A tester - n'a pas empeche la compilation du recov
 # ToDo : see if this parameter can be changed to match the Lenovo's name of Board
 TARGET_BOOTLOADER_BOARD_NAME := Tab2A710F
 
+# assert
+#TARGET_OTA_ASSERT_DEVICE := Tab2A7-10F,Tab2_A7-10F, Tab2A710F  # TODO
+
 BOARD_KERNEL_CMDLINE :=             # pas teste. d'apres la config du boot
 BOARD_KERNEL_BASE := 0x80000000			# teste. d'apres la config du boot...
 BOARD_KERNEL_PAGESIZE := 2048		    # = 2048 (doit rester en decimal)
@@ -46,18 +49,19 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 # TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true   #Not supported by 5.1
 ##################################################
 
-BOARD_HAS_LARGE_FILESYSTEM := true	# pas sur, utile ?
+BOARD_HAS_LARGE_FILESYSTEM := true      # utile ?
 TARGET_USERIMAGES_USE_EXT4 := true
-GET_USERIMAGES_SPARSE_EXT_DISABLED := false
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false  # utile ?
 
 BOARD_HAS_NO_SELECT_BUTTON := true
+
 
 ############################### Boot
 BOARD_USES_UBOOT := true                # pas sur mais probable
 # init
 #TARGET_PROVIDES_INIT_RC := true                        # A tester
-#HAVE_AEE_FEATURE := yes                                # A tester
-#BUILD_MTK_INIT := true                                 # A tester
+HAVE_AEE_FEATURE := yes
+BUILD_MTK_INIT := true
 #MTK_KERNEL_POWER_OFF_CHARGING := true                  # A tester
 #BOARD_CUSTOM_BOOTIMG_MK := device/lenovo/Tab2A710F/boot.mk    # A tester
 
@@ -76,11 +80,26 @@ TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel
 
 ############################## Recovery (TWRP)
 DEVICE_RESOLUTION := 1024x600
+TARGET_RECOVERY_PIXEL_FORMAT := "BGR_565"
+RECOVERY_VARIANT := twrp
+#RECOVERY_GRAPHICS_USE_LINELENGTH := true       # A tester (this line is supposed to improve graphics on some devices)
 
 TW_THEME := portrait_mdpi
-
 # To use the same theme than twrp customized by ??? (VVizard@lenovo-forum.ru ?)
 TW_CUSTOM_THEME := device/lenovo/Tab2A710F/recovery/twres
+
+# Storage configuration		# A tester
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "extsdcard"
+TW_FLASH_FROM_STORAGE := true
+
+# For classic partitioned device
+# TW_INTERNAL_STORAGE_PATH := "/media"
+# TW_INTERNAL_STORAGE_MOUNT_POINT := "media"
+# For datamedia device		# A tester
+RECOVERY_SDCARD_ON_DATA := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 
 # Force use of following .rc files for recovery.img
 TW_EXCLUDE_DEFAULT_USB_INIT := true
@@ -89,15 +108,22 @@ TARGET_RECOVERY_INITRC += device/lenovo/Tab2A710F/recovery/init.recovery.usb.rc
 TARGET_RECOVERY_INITRC += device/lenovo/Tab2A710F/recovery/ueventd.rc 
 
 # Let recovery Android.mk expect a standard V2 recovery.fstab, to put it in root
-TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
-RECOVERY_FSTAB_VERSION := 2
+#TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
+#RECOVERY_FSTAB_VERSION := 2
+TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
+RECOVERY_FSTAB_VERSION := 1
+
+
 # -- removes the reboot bootloader button from the recovery reboot menu
 TW_NO_REBOOT_BOOTLOADER := true         # fonctionne ? 
+TW_INCLUDE_CRYPTO := true       # A tester
+#TW_EXCLUDE_MTP := true         # A tester ?
+#TW_EXCLUDE_SUPERSU := true     # A tester ?
+#TWHAVE_SELINUX := true         # A tester ?
 
-RECOVERY_SDCARD_ON_DATA := true		# xda TWRP
-RECOVERY_VARIANT := twrp
-TARGET_RECOVERY_PIXEL_FORMAT := "BGR_565"
-#RECOVERY_GRAPHICS_USE_LINELENGTH := true       # A tester (this line is supposed to improve graphics on some devices)
+#TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness  # A tester
+#TW_???THERMAL???               # A trouver
+
 ############################## End of Recovery parameters(TWRP)
 
 
