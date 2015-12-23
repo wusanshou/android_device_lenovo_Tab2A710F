@@ -89,8 +89,8 @@ TW_THEME := portrait_mdpi
 TW_CUSTOM_THEME := device/lenovo/Tab2A710F/recovery/twres
 
 # Storage configuration		# A tester
-TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "extsdcard"
+#TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+#TW_EXTERNAL_STORAGE_MOUNT_POINT := "extsdcard"
 TW_FLASH_FROM_STORAGE := true
 
 # For classic partitioned device
@@ -98,7 +98,7 @@ TW_FLASH_FROM_STORAGE := true
 # TW_INTERNAL_STORAGE_MOUNT_POINT := "media"
 # For datamedia device		# A tester
 RECOVERY_SDCARD_ON_DATA := true
-TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_PATH := "/sdcard"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 
 # To use conventional name (Tab2A7-10F) for TWRP backup path
