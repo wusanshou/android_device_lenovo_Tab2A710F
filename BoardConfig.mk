@@ -108,10 +108,11 @@ TARGET_RECOVERY_INITRC += device/lenovo/Tab2A710F/recovery/init.recovery.usb.rc
 TARGET_RECOVERY_INITRC += device/lenovo/Tab2A710F/recovery/ueventd.rc 
 
 # Let recovery Android.mk expect a standard V2 recovery.fstab, to put it in root
-#TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
-#RECOVERY_FSTAB_VERSION := 2
-TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
-RECOVERY_FSTAB_VERSION := 1
+TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.fstab
+RECOVERY_FSTAB_VERSION := 2
+# The true recovery.fstab will be obtained from /etc/twrp.fstab, copied by Tab2A710F.mk directive
+#TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
+#RECOVERY_FSTAB_VERSION := 1
 
 
 # -- removes the reboot bootloader button from the recovery reboot menu
