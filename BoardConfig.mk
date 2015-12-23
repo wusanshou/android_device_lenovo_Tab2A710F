@@ -101,6 +101,9 @@ RECOVERY_SDCARD_ON_DATA := true
 TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 
+# To use conventional name (Tab2A7-10F) for TWRP backup path
+TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+
 # Force use of following .rc files for recovery.img
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TARGET_RECOVERY_INITRC := device/lenovo/Tab2A710F/recovery/init.rc 
