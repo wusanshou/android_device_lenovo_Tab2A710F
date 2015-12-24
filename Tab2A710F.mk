@@ -100,7 +100,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/libhardware.so:recovery/root/sbin/libhardware.so
 
-  
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/zoneinfo/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
+
+ 
 # Try to fix problem about recovery fstab (TWRP with Omnirom 5.1)
 # Note that TWRP does not currently support the "fstab 2" version of fstab files seen in 4.3 or higher. 
 # You will still need to use the "old" format of fstab for TWRP (example of that format is below). 
