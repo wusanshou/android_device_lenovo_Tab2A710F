@@ -94,3 +94,11 @@ system/vendor/lib/mediadrm/libwvdrmengine.so
 system/vendor/lib/soundfx/libswdap.so
 system/vendor/media/LMspeed_508.emd
 system/vendor/media/PFFprec_600.emd
+
+system/etc/.tp/thermal.conf
+system/etc/.tp/thermal.off.conf
+system/bin/thermald
+system/bin/thermal
+system/lib/libmtcloader.so
+system/bin/thermal_manager
+
