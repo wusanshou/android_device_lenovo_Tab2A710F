@@ -98,10 +98,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/fstab:root/fstab
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/libhardware.so:recovery/root/sbin/libhardware.so
+    $(LOCAL_PATH)/recovery/sbin/libhardware.so:recovery/root/sbin/libhardware.so
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/zoneinfo/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
+
+# NTFS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/sbin/mkntfs:recovery/root/sbin/mkntfs \
+    $(LOCAL_PATH)/recovery/sbin/ntfs-3g:recovery/root/sbin/ntfs-3g \
+    $(LOCAL_PATH)/recovery/sbin/ntfsfix:recovery/root/sbin/ntfsfix \
 
  
 # Try to fix problem about recovery fstab (TWRP with Omnirom 5.1)
