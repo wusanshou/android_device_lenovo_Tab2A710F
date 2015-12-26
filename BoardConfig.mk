@@ -88,11 +88,12 @@ TW_THEME := portrait_mdpi
 # To use the same theme than twrp customized by ??? (VVizard@lenovo-forum.ru ?)
 TW_CUSTOM_THEME := device/lenovo/Tab2A710F/recovery/twres
 
-# Storage configuration		# A tester
-#TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-#TW_EXTERNAL_STORAGE_MOUNT_POINT := "extsdcard"
+# Storage configuration
+TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_FLASH_FROM_STORAGE := true
 
+#TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+#TW_EXTERNAL_STORAGE_MOUNT_POINT := "extsdcard"
 # For classic partitioned device
 # TW_INTERNAL_STORAGE_PATH := "/media"
 # TW_INTERNAL_STORAGE_MOUNT_POINT := "media"
@@ -126,7 +127,8 @@ TW_INCLUDE_CRYPTO := true       # A tester
 #TWHAVE_SELINUX := true         # A tester ?
 
 #TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness  # A tester
-#TW_???THERMAL???               # A trouver
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone1/temp"	# Pas sur que ce soit la temperature du CPU... mais ca donne une idee de la temperature
+
 
 ############################## End of Recovery parameters(TWRP)
 
