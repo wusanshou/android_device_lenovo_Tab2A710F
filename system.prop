@@ -11,8 +11,6 @@ ro.product.device=Tab2A7-10F
 ro.product.board=Tab2A7-10F
 ro.product.custname=Lenovo TAB 2 A7-10F
 ro.product.manufacturer=LENOVO
-ro.product.locale.language=fr
-ro.product.locale.region=FR
 ro.wifi.channels=
 ro.board.platform=mt8127
 # ro.build.product is obsolete; use ro.product.device
@@ -69,11 +67,6 @@ ro.sys.usb.charging.only=yes
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
-ro.com.android.dateformat=dd-MM-yyyy
-ro.config.ringtone=Ring_Synth_04.ogg
-ro.config.notification_sound=Notice.ogg
-ro.carrier=unknown
-ro.config.alarm_alert=Dreamland.mp3
 dolby.monospeaker=true
 drm.service.enabled=true
 ro.mediatek.platform=MT8127
@@ -147,18 +140,8 @@ ro.have_aee_feature=1
 ro.sim_me_lock_mode=0
 ro.mtk_voice_extension_support=1
 wfd.dummy.enable=1
-dalvik.vm.heapstartsize=5m
-dalvik.vm.heapgrowthlimit=128m
-dalvik.vm.heapsize=256m
-dalvik.vm.heaptargetutilization=0.75
-dalvik.vm.heapminfree=512k
-dalvik.vm.heapmaxfree=2m
 ro.mediatek.chip_ver=S01
-ro.mediatek.version.release=T2-A7-10F_S000054_150801_ROW
 ro.landimobile.china_version=no
 ro.landimobile.rowversion=normal
 persist.backgrounddata.enable=false
-persist.sys.dalvik.vm.lib.2=libart.so
-dalvik.vm.isa.arm.features=div
-net.bt.name=Android
-dalvik.vm.stack-trace-file=/data/anr/traces.txt
+
