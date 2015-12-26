@@ -98,9 +98,9 @@ TW_FLASH_FROM_STORAGE := true
 # TW_INTERNAL_STORAGE_PATH := "/media"
 # TW_INTERNAL_STORAGE_MOUNT_POINT := "media"
 # For datamedia device		# A tester
-RECOVERY_SDCARD_ON_DATA := true
-TW_INTERNAL_STORAGE_PATH := "/sdcard"
-TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+#RECOVERY_SDCARD_ON_DATA := true
+#TW_INTERNAL_STORAGE_PATH := "/sdcard"
+#TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 
 # To use conventional name (Tab2A7-10F) for TWRP backup path
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
