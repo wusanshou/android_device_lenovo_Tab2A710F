@@ -27,6 +27,11 @@ TARGET_OTA_ASSERT_DEVICE := Tab2A7-10F,Tab2_A7-10F,Tab2A710F
 BOARD_HAS_LARGE_FILESYSTEM := true      
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
+#BOARD_HAS_MTK_HARDWARE := true          # A tester
+#MTK_HARDWARE := true                    # A tester
+#BOARD_HAS_MTK := true                   # A tester
+#TARGET_USE_UBOOT := true                # A tester
+
 
 BOARD_KERNEL_CMDLINE :=			# pas teste. d'apres la config du boot
 BOARD_KERNEL_BASE := 0x80000000		# teste. d'apres la config du boot...
@@ -139,6 +144,11 @@ BOARD_EGL_CFG := device/lenovo/Tab2A710F/prebuilt/etc/egl.cfg
 USE_OPENGL_RENDERER := true
 BUILD_EMULATOR_OPENGL := false
 BUILD_EMULATOR_OPENGL_DRIVER := false
+
+#TARGET_USES_C2D_COMPOSITION := true            # A tester
+#TARGET_USES_OVERLAY := true                    # A tester
+#TARGET_USES_ION := true                        # A tester
+
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
