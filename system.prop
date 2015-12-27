@@ -145,3 +145,7 @@ ro.landimobile.china_version=no
 ro.landimobile.rowversion=normal
 persist.backgrounddata.enable=false
 
+# no RIL
+ro.carrier=wifi-only
+ro.radio.noril=yes
+
