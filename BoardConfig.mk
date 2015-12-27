@@ -27,10 +27,10 @@ TARGET_OTA_ASSERT_DEVICE := Tab2A7-10F,Tab2_A7-10F,Tab2A710F
 BOARD_HAS_LARGE_FILESYSTEM := true      
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-#BOARD_HAS_MTK_HARDWARE := true          # A tester
-#MTK_HARDWARE := true                    # A tester
-#BOARD_HAS_MTK := true                   # A tester
-#TARGET_USE_UBOOT := true                # A tester
+BOARD_HAS_MTK_HARDWARE := true          # A tester
+MTK_HARDWARE := true                    # A tester
+BOARD_HAS_MTK := true                   # A tester
+TARGET_USE_UBOOT := true                # A tester
 
 
 BOARD_KERNEL_CMDLINE :=			# pas teste. d'apres la config du boot
@@ -120,7 +120,7 @@ RECOVERY_FSTAB_VERSION := 2
 
 
 TW_NO_REBOOT_BOOTLOADER := true		# ne semble pas pris en compte
-TW_INCLUDE_CRYPTO := true		# A tester, config à compléter ?
+#TW_INCLUDE_CRYPTO := true		# A tester, config à compléter ?
 #TW_EXCLUDE_MTP := true
 #TW_EXCLUDE_SUPERSU := true
 TWHAVE_SELINUX := true			# A tester, ok pour le recovery
@@ -147,7 +147,7 @@ BUILD_EMULATOR_OPENGL_DRIVER := false
 
 #TARGET_USES_C2D_COMPOSITION := true            # A tester
 #TARGET_USES_OVERLAY := true                    # A tester
-#TARGET_USES_ION := true                        # A tester
+TARGET_USES_ION := true                        # A tester
 
 
 # Vold
