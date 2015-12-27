@@ -39,7 +39,7 @@ BOARD_KERNEL_PAGESIZE := 2048		# = 2048 (doit rester en decimal)
 BOARD_KERNEL_OFFSET := 0x00008000	# pas teste. d'apres la config du boot
 BOARD_RAMDISK_OFFSET := 0x04000000	# pas teste. d'apres la config du boot
 BOARD_TAGS_OFFSET := 0x00000100		# pas teste. d'apres la config du boot
-#BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x0008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100          # A tester, ok pour le recovery, toujours pas de boot system
+#BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100          # A tester, ok pour le recovery, toujours pas de boot system
 
 # Values displayed by MTK Droid Tools, from a tablet running KitKat Stock Rom
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216		# = 16MB (OK with MTKDroidTools value)
