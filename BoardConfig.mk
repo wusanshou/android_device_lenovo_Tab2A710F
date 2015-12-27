@@ -17,58 +17,52 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a7
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
-ARCH_ARM_HAVE_NEON := true		# A tester - n'a pas empeche la compilation du recovery, et assez logique
-
+ARCH_ARM_HAVE_NEON := true
 
 ################################# Define Flash topography 
 
 # ToDo : see if this parameter can be changed to match the Lenovo's name of Board
 TARGET_BOOTLOADER_BOARD_NAME := Tab2A710F
+TARGET_OTA_ASSERT_DEVICE := Tab2A7-10F,Tab2_A7-10F,Tab2A710F
+BOARD_HAS_LARGE_FILESYSTEM := true      
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_HAS_NO_SELECT_BUTTON := true
 
-# assert
-#TARGET_OTA_ASSERT_DEVICE := Tab2A7-10F,Tab2_A7-10F, Tab2A710F  # TODO
-
-BOARD_KERNEL_CMDLINE :=             # pas teste. d'apres la config du boot
-BOARD_KERNEL_BASE := 0x80000000			# teste. d'apres la config du boot...
-BOARD_KERNEL_PAGESIZE := 2048		    # = 2048 (doit rester en decimal)
-BOARD_KERNEL_OFFSET := 0x00008000		# pas teste. d'apres la config du boot
-BOARD_RAMDISK_OFFSET := 0x04000000	  # pas teste. d'apres la config du boot
-BOARD_TAGS_OFFSET := 0x00000100		    # pas teste. d'apres la config du boot
+BOARD_KERNEL_CMDLINE :=			# pas teste. d'apres la config du boot
+BOARD_KERNEL_BASE := 0x80000000		# teste. d'apres la config du boot...
+BOARD_KERNEL_PAGESIZE := 2048		# = 2048 (doit rester en decimal)
+BOARD_KERNEL_OFFSET := 0x00008000	# pas teste. d'apres la config du boot
+BOARD_RAMDISK_OFFSET := 0x04000000	# pas teste. d'apres la config du boot
+BOARD_TAGS_OFFSET := 0x00000100		# pas teste. d'apres la config du boot
+#BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x0008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100          # A tester, ok pour le recovery, toujours pas de boot system
 
 # Values displayed by MTK Droid Tools, from a tablet running KitKat Stock Rom
-BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216       # = 16MB (OK with MTKDroidTools value)
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216   # = 16MB (OK with MTKDroidTools value)
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736   # = 1,5 GB  (OK with MTKDroidTools value)
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472 # = 3 GB sur 5,5 GB max  (OK with MTKDroidTools value)
-
-BOARD_FLASH_BLOCK_SIZE := 0x020000	           # BOARD_KERNEL_PAGESIZE * 64 trouve sur un forum, valeur generee par CM
+BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216		# = 16MB (OK with MTKDroidTools value)
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216		# = 16MB (OK with MTKDroidTools value)
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736		# = 1,5 GB  (OK with MTKDroidTools value)
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472	# = 3 GB sur 5,5 GB max  (OK with MTKDroidTools value)
+BOARD_FLASH_BLOCK_SIZE := 0x020000			# BOARD_KERNEL_PAGESIZE * 64 trouve sur un forum, valeur generee par CM
 
 # Needed for Android 6 ###########################
-BOARD_CACHEIMAGE_PARTITION_SIZE := 132120576      # = 0x07e00000 = 128MB
+BOARD_CACHEIMAGE_PARTITION_SIZE := 132120576		# = 0x07e00000 = 128MB	# Pix : ça me semble petit comme valeur...
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-# TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true   #Not supported by 5.1
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true		# semble ok avec Omnirom 5.1.1 maintenant
 ##################################################
-
-BOARD_HAS_LARGE_FILESYSTEM := true      # utile ?
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false  # utile ?
-
-BOARD_HAS_NO_SELECT_BUTTON := true
 
 
 ############################### Boot
-BOARD_USES_UBOOT := true                # pas sur mais probable
+BOARD_USES_UBOOT := true		# pas sur mais probable
 # init
-#TARGET_PROVIDES_INIT_RC := true                        # A tester
+TARGET_PROVIDES_INIT_RC := true		# A tester, ok pour le recovery
 HAVE_AEE_FEATURE := yes
 BUILD_MTK_INIT := true
-#MTK_KERNEL_POWER_OFF_CHARGING := true                  # A tester
-#BOARD_CUSTOM_BOOTIMG_MK := device/lenovo/Tab2A710F/boot.mk    # A tester
+MTK_KERNEL_POWER_OFF_CHARGING := true	# A tester, ok pour le recovery
+#BOARD_CUSTOM_BOOTIMG_MK := device/lenovo/Tab2A710F/boot.mk	# A tester ?
 
 
 ############################## Kernel parameters to use ##########
 # activate following parameter to use a prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel  
+TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel
 
 # activate following parameter to build the normal kernel
 # config file located in kernel/lenovo/Tab2A710F/arch/arm/configs/
@@ -78,14 +72,15 @@ TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel
 #TARGET_KERNEL_CONFIG := bitland8127_tb_l_debug_defconfig
 ###################################################################
 
+
 ############################## Recovery (TWRP)
 DEVICE_RESOLUTION := 1024x600
 TARGET_RECOVERY_PIXEL_FORMAT := "BGR_565"
 RECOVERY_VARIANT := twrp
-#RECOVERY_GRAPHICS_USE_LINELENGTH := true       # A tester (this line is supposed to improve graphics on some devices)
+#RECOVERY_GRAPHICS_USE_LINELENGTH := true	# A tester ? (this line is supposed to improve graphics on some devices)
 
-TW_THEME := portrait_mdpi
-# To use the same theme than twrp customized by ??? (VVizard@lenovo-forum.ru ?)
+#TW_THEME := portrait_hdpi
+# To use the same theme than twrp customized by z31s1g@forum.xda-developers.com
 TW_CUSTOM_THEME := device/lenovo/Tab2A710F/recovery/twres
 
 # Storage configuration
@@ -119,17 +114,15 @@ RECOVERY_FSTAB_VERSION := 2
 #RECOVERY_FSTAB_VERSION := 1
 
 
-# -- removes the reboot bootloader button from the recovery reboot menu
-TW_NO_REBOOT_BOOTLOADER := true         # fonctionne ? 
-TW_INCLUDE_CRYPTO := true       # A tester
-#TW_EXCLUDE_MTP := true         # A tester ?
-#TW_EXCLUDE_SUPERSU := true     # A tester ?
-#TWHAVE_SELINUX := true         # A tester ?
+TW_NO_REBOOT_BOOTLOADER := true		# ne semble pas pris en compte
+TW_INCLUDE_CRYPTO := true		# A tester, config à compléter ?
+#TW_EXCLUDE_MTP := true
+#TW_EXCLUDE_SUPERSU := true
+TWHAVE_SELINUX := true			# A tester, ok pour le recovery
 
-#TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"  # A tester
-#TW_MAX_BRIGHTNESS := 255
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone1/temp"	# Pas sur que ce soit la temperature du CPU... mais ca donne une idee de la temperature
-
+#TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"	# A tester, trouver la bonne valeur (pb de compilation)
+TW_MAX_BRIGHTNESS := 255
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone1/temp"
 
 ############################## End of Recovery parameters(TWRP)
 
@@ -151,15 +144,16 @@ BUILD_EMULATOR_OPENGL_DRIVER := false
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 
 # audio
-#TARGET_PROVIDES_LIBAUDIO := true	# A tester
-BOARD_USES_MTK_AUDIO := true
+#TARGET_PROVIDES_LIBAUDIO := true		# A tester
+BOARD_USES_MTK_AUDIO := true			# A tester
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_MTK := true        # A tester
+BOARD_HAVE_BLUETOOTH_MTK := true		# A tester
 #BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true    # A tester
-#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/micromax/a106/bluetooth	# A tester
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/micromax/a106/bluetooth	# A adapter et tester
 
 # From Lenovo's KitKat OSC package
 TARGET_NO_FACTORYIMAGE := true
 TARGET_KMODULES := true
+
