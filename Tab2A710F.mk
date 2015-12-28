@@ -95,7 +95,8 @@ PRODUCT_COPY_FILES += \
 
 # Put standard fstab file (not used by TWRP : It uses /etc/twrp.fstab instead)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ramdisk/fstab:root/fstab
+    $(LOCAL_PATH)/ramdisk/fstab:root/fstab \
+    $(LOCAL_PATH)/ramdisk/fstab.mt8127:root/fstab.mt8127
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/sbin/libhardware.so:recovery/root/sbin/libhardware.so
@@ -109,6 +110,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/sbin/ntfs-3g:recovery/root/sbin/ntfs-3g \
     $(LOCAL_PATH)/recovery/sbin/ntfsfix:recovery/root/sbin/ntfsfix \
 
+# /bin/sh
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/sh:ramdisk/root/system/bin/sh
  
 # Try to fix problem about recovery fstab (TWRP with Omnirom 5.1)
 # Note that TWRP does not currently support the "fstab 2" version of fstab files seen in 4.3 or higher. 
