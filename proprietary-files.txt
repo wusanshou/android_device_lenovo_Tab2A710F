@@ -22,6 +22,7 @@ system/lib/hw/gralloc.mt8127.so
 system/lib/hw/hwcomposer.mt8127.so
 system/lib/hw/keystore.default.so
 system/lib/hw/lights.default.so
+system/lib/hw/local_time.default.so
 system/lib/hw/power.default.so
 system/lib/hw/sensors.mt8127.so
 system/lib/hw/vibrator.default.so
@@ -103,7 +104,6 @@ system/lib/libsbccodec.so
 system/lib/libspeech_enh_lib.so
 system/lib/libtz_uree.so
 system/lib/libvcodec_utility.so
-system/lib/local_time.default.so
 system/vendor/app/Ds/Ds.apk
 system/vendor/app/DsUI/DsUI.apk
 system/vendor/etc/audio_effects.conf
