@@ -146,6 +146,12 @@ USE_OPENGL_RENDERER := true
 #TARGET_USES_SF_BYPASS := true			# A tester
 TARGET_USES_ION := true
 
+# HWComposer
+BOARD_USES_HWCOMPOSER := true			# A tester
+BOARD_USES_PROPRIETARY_HWC := true		# A tester
+#BOARD_USE_SYSFS_VSYNC_NOTIFICATION := true	# A tester
+
+
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 
