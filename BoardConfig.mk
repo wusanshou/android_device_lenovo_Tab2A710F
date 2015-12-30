@@ -19,27 +19,27 @@ TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_NEON := true
 
-################################# Define Flash topography 
 
+################################# Define Flash topography 
 # ToDo : see if this parameter can be changed to match the Lenovo's name of Board
 TARGET_BOOTLOADER_BOARD_NAME := Tab2A710F
 TARGET_OTA_ASSERT_DEVICE := Tab2A7-10F,Tab2_A7-10F,Tab2A710F
 BOARD_HAS_LARGE_FILESYSTEM := true      
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_HAS_MTK_HARDWARE := true          # A tester
-MTK_HARDWARE := true                    # A tester
-BOARD_HAS_MTK := true                   # A tester
-TARGET_USE_UBOOT := true                # A tester
+BOARD_HAS_MTK_HARDWARE := true
+MTK_HARDWARE := true
+BOARD_HAS_MTK := true
+TARGET_USE_UBOOT := true
+MTK_PLATFORM := mt8127
 
-
-BOARD_KERNEL_CMDLINE :=			# pas teste. d'apres la config du boot
+BOARD_KERNEL_CMDLINE :=	#androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000		# teste. d'apres la config du boot...
 BOARD_KERNEL_PAGESIZE := 2048		# = 2048 (doit rester en decimal)
 BOARD_KERNEL_OFFSET := 0x00008000	# pas teste. d'apres la config du boot
 BOARD_RAMDISK_OFFSET := 0x04000000	# pas teste. d'apres la config du boot
 BOARD_TAGS_OFFSET := 0x00000100		# pas teste. d'apres la config du boot
-#BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100          # A tester, ok pour le recovery, toujours pas de boot system
+#BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100          # A tester ?
 
 # Values displayed by MTK Droid Tools, from a tablet running KitKat Stock Rom
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216		# = 16MB (OK with MTKDroidTools value)
@@ -47,21 +47,18 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216		# = 16MB (OK with MTKDroidTools 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736		# = 1,5 GB  (OK with MTKDroidTools value)
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472	# = 3 GB sur 5,5 GB max  (OK with MTKDroidTools value)
 BOARD_FLASH_BLOCK_SIZE := 0x020000			# BOARD_KERNEL_PAGESIZE * 64 trouve sur un forum, valeur generee par CM
-
-# Needed for Android 6 ###########################
 BOARD_CACHEIMAGE_PARTITION_SIZE := 132120576		# = 0x07e00000 = 128MB
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true		# semble ok avec Omnirom 5.1.1 maintenant
-##################################################
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 
 
 ############################### Boot
 BOARD_USES_UBOOT := true		# pas sur mais probable
-# init
 TARGET_PROVIDES_INIT_RC := true		# A tester, ok pour le recovery
 HAVE_AEE_FEATURE := yes
 BUILD_MTK_INIT := true
 MTK_KERNEL_POWER_OFF_CHARGING := true	# A tester, ok pour le recovery
+#BOARD_CUSTOM_BOOTIMG := true		# A tester ?
 #BOARD_CUSTOM_BOOTIMG_MK := device/lenovo/Tab2A710F/boot.mk	# A tester ?
 
 
@@ -118,7 +115,6 @@ RECOVERY_FSTAB_VERSION := 2
 #TARGET_RECOVERY_FSTAB := device/lenovo/Tab2A710F/recovery/recovery.pix.fstab
 #RECOVERY_FSTAB_VERSION := 1
 
-
 TW_NO_REBOOT_BOOTLOADER := true		# ne semble pas pris en compte
 #TW_INCLUDE_CRYPTO := true		# A tester, config à compléter ?
 #TW_EXCLUDE_MTP := true
@@ -142,13 +138,13 @@ MTK_ION_SUPPORT := true
 # EGL settings
 BOARD_EGL_CFG := device/lenovo/Tab2A710F/prebuilt/etc/egl.cfg
 USE_OPENGL_RENDERER := true
-BUILD_EMULATOR_OPENGL := false
-BUILD_EMULATOR_OPENGL_DRIVER := false
+#BUILD_EMULATOR_OPENGL := false
+#BUILD_EMULATOR_OPENGL_DRIVER := false
 
 #TARGET_USES_C2D_COMPOSITION := true            # A tester
 #TARGET_USES_OVERLAY := true                    # A tester
-TARGET_USES_ION := true                        # A tester
-
+#TARGET_USES_SF_BYPASS := true			# A tester
+TARGET_USES_ION := true
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
@@ -156,6 +152,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto
 # audio
 #TARGET_PROVIDES_LIBAUDIO := true		# A tester
 BOARD_USES_MTK_AUDIO := true			# A tester
+#BOARD_USES_ALSA_AUDIO:= true			# A tester
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -163,7 +160,7 @@ BOARD_HAVE_BLUETOOTH_MTK := true		# A tester
 #BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true    # A tester
 #BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/micromax/a106/bluetooth	# A adapter et tester
 
-# From Lenovo's KitKat OSC package
+## From Lenovo's KitKat OSC package
 TARGET_NO_FACTORYIMAGE := true
 TARGET_KMODULES := true
 

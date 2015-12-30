@@ -19,7 +19,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/kernel:kernel
 
 # Set wifi-only before it's set by generic_no_telephony.mk
-WIFI_BAND := 802_11_ABG
+WIFI_BAND := 802_11_ABGN
 
 # ToDo To be checked for Tab2 A7-10F.....
 PRODUCT_PROPERTY_OVERRIDES += \
