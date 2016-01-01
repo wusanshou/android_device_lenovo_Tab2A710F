@@ -141,7 +141,10 @@ MTK_ION_SUPPORT := true
 BOARD_EGL_CFG := device/lenovo/Tab2A710F/prebuilt/etc/egl.cfg
 BUILD_EMULATOR_OPENGL := false
 BUILD_EMULATOR_OPENGL_DRIVER := false
+
+# if following parameter set to false, build fails !
 USE_OPENGL_RENDERER    := true
+
 #BOARD_NO_ALLOW_DEQUEUE_CURRENT_BUFFER := true
 #BOARD_USE_SKIA_LCDTEXT := true
 BOARD_USES_HGL := true
