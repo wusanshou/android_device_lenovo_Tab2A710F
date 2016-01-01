@@ -22,26 +22,26 @@ on post-fs-data
     insmod /system/lib/modules/mtk_wmt_detect.ko
 
 # Create char device file for WMT, GPS, BT, FM, WIFI
-#    mknod /dev/stpwmt c 190 0;
-#    mknod /dev/stpgps c 191 0;
-#    mknod /dev/stpbt  c 192 0;
+    mknod /dev/stpwmt c 190 0;
+    mknod /dev/stpgps c 191 0;
+    mknod /dev/stpbt  c 192 0;
 
-#    chmod 0660 /dev/stpwmt
-#    chown system system /dev/stpwmt
+    chmod 0660 /dev/stpwmt
+    chown system system /dev/stpwmt
 #    
-#    chmod 0660 /dev/wmtdetect
-#    chown system system /dev/wmtdetect
+    chmod 0660 /dev/wmtdetect
+    chown system system /dev/wmtdetect
  
     mknod /dev/wmtWifi c 153 0
     chmod 0660 /dev/wmtWifi
     chown system system /dev/wmtWifi
 
 # BT
-#    chmod 0660 /dev/stpbt
-#    chown bluetooth radio /dev/stpbt
+    chmod 0660 /dev/stpbt
+    chown bluetooth radio /dev/stpbt
 
 # GPS
-#    chown gps gps /dev/stpgps
+    chown gps gps /dev/stpgps
     chown gps gps /sys/class/gpsdrv/gps/pwrctl
     chown gps gps /sys/class/gpsdrv/gps/suspend
     chown gps gps /sys/class/gpsdrv/gps/state
