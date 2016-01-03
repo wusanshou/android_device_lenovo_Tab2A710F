@@ -1,5 +1,8 @@
 ## From https://github.com/TeamRegular/android_device_amazon_ford/blob/cm-12.1/proprietary-files.txt ##
 
+# pour xlog - temporaire ?
+system/lib/libcutils.so
+
 # Audio
 system/bin/audiocmdservice_atci
 system/lib/hw/audio.primary.mt8127.so
@@ -192,7 +195,7 @@ system/bin/mtkrild
 system/bin/mtkrildmd2
 system/bin/mtk_setprop
 system/etc/mtklog-config.prop
-system/lib/egl/egl.cfg
+#system/lib/egl/egl.cfg
 system/lib/hw/audio_policy.default.so
 system/lib/hw/audio_policy.stub.so
 system/lib/hw/audio.primary.default.so
@@ -218,10 +221,6 @@ system/lib/libcustom_prop.so
 system/lib/libdrmmtkwhitelist.so
 system/lib/libextsys.so
 system/lib/libfeatureio.so
-system/lib/libGLES_trace.so
-system/lib/libGLESv1_CM.so
-system/lib/libGLESv2.so
-system/lib/libGLESv3.so
 system/lib/libhwui.so
 system/lib/libimageio_plat_drv.so
 system/lib/libimageio.so
@@ -244,21 +243,3 @@ system/lib/libtz_uree.so
 system/lib/mtk-rilmd2.so
 system/lib/mtk-ril.so
 
-# Vendor
-system/vendor/app/Ds/Ds.apk
-system/vendor/app/DsUI/DsUI.apk
-system/vendor/etc/audio_effects.conf
-system/vendor/etc/dolby/ds1-default.xml
-system/vendor/lib/hw/audio.a2dp.blueangel.so
-system/vendor/lib/hw/bluetooth.blueangel.so
-system/vendor/lib/libstagefright_soft_ddpdec.so
-system/vendor/lib/mediadrm/libdrmclearkeyplugin.so
-system/vendor/lib/mediadrm/libmockdrmcryptoplugin.so
-system/vendor/lib/soundfx/libswdap.so
-system/vendor/media/LMspeed_508.emd
-system/vendor/media/PFFprec_600.emd
-
-
-# Test
-#system/lib/libsurfaceflinger.so
-#system/lib/libsurfaceflinger_ddmconnection.so
