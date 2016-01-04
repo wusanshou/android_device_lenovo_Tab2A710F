@@ -1,3 +1,5 @@
+# init.environ.rc installed by PixNDom build scripts
+#
 # set up the global environment
 on init
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin

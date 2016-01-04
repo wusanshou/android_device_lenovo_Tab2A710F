@@ -1,3 +1,5 @@
+# init.mt8127usb.rc installed by PixNDom build scripts
+#
 on init
 # Workarunod for USB unknow device issue
 # USB would switch correct function when set properity sys.usb.config

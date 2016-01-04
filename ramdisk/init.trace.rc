@@ -1,3 +1,6 @@
+# init.trace.rc installed by PixNDom build scripts
+# Not used (replaced by Omnirom default version)
+#
 ## Permissions to allow system-wide tracing to the kernel trace buffer.
 ##
 on early-boot

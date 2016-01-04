@@ -1,3 +1,5 @@
+# init.ssd.rc installed by PixNDom build scripts
+#
 # MTK project .rc configure 
 
 on post-fs-data

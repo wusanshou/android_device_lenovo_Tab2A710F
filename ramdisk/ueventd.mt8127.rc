@@ -1,3 +1,5 @@
+# ueventd.mt8127.rc installed by PixNDom build scripts
+#
 /dev/pvrsrvkm             0766   root       root
 /dev/pvr_sync           0766   root         root
 /dev/stpwmt             0660   system       system

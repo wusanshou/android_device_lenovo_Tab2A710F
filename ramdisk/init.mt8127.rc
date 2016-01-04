@@ -1,4 +1,5 @@
-
+# init.mt8127.rc installed by PixNDom build scripts
+#
 #connectivity related init script
 import init.project.rc
 import init.connectivity.rc

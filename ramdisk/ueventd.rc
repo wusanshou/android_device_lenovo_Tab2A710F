@@ -1,3 +1,6 @@
+# ueventd.rc installed by PixNDom build scripts
+# Not used (replaced by Omnirom default version)
+#
 subsystem adf
 	devname uevent_devname
 

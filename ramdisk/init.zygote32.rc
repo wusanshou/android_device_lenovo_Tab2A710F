@@ -1,3 +1,6 @@
+# init.zygote32.rc installed by PixNDom build scripts
+# Not used (replaced by Omnirom default version)
+#
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
     class main
     socket zygote stream 660 root system

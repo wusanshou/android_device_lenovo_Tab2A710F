@@ -1,3 +1,5 @@
+# init.aee.rc installed by PixNDom build scripts
+#
 on property:ro.build.type=eng
     write /proc/sys/fs/suid_dumpable 2
     write /proc/sys/kernel/core_pattern "|/system/bin/aee_core_forwarder /data/core/ %p %s UID=%u GID=%g"

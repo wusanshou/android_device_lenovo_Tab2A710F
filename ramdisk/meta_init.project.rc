@@ -1,3 +1,5 @@
+# meta.init.project.rc installed by PixNDom build scripts
+#
 on post-fs
 
     # trustzone related interface

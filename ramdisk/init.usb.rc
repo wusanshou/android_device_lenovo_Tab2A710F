@@ -1,3 +1,6 @@
+# init.usb.rc installed by PixNDom build scripts
+# Not used (replaced by Omnirom default version)
+#
 # Copyright (C) 2012 The Android Open Source Project
 #
 # USB configuration common for all android devices
