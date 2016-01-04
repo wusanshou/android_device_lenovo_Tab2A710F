@@ -53,6 +53,15 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 #TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
+BOARD_SEPOLICY_DIRS := \
+       device/lenovo/Tab2A710F/sepolicy
+
+BOARD_SEPOLICY_UNION := \
+       device.te \
+       app.te \
+       system.te \
+       file_contexts
+
 
 ############################### Boot
 BOARD_USES_UBOOT := true		# pas sur mais probable

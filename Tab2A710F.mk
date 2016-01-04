@@ -48,6 +48,9 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     wpa_supplicant 
 
+PRODUCT_PACKAGES += \
+    libxlog
+
 # inherit proprietary files
 $(call inherit-product, build/target/product/full_base.mk)
 $(call inherit-product-if-exists, vendor/lenovo/Tab2A710F/Tab2A710F-vendor.mk)
@@ -77,8 +80,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
     $(LOCAL_PATH)/ramdisk/init.environ.rc:root/init.environ.rc \
-    $(LOCAL_PATH)/ramdisk/init.usb.rc:root/init.usb.rc \
-    $(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.mt8127.rc:root/ueventd.mt8127.rc \
     $(LOCAL_PATH)/ramdisk/init.mt8127.rc:root/init.mt8127.rc \
     $(LOCAL_PATH)/ramdisk/init.project.rc:root/init.project.rc \
@@ -86,12 +87,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.mt8127usb.rc:root/init.mt8127usb.rc \
     $(LOCAL_PATH)/ramdisk/init.ssd.rc:root/init.ssd.rc \
     $(LOCAL_PATH)/ramdisk/init.aee.rc:root/init.aee.rc \
-    $(LOCAL_PATH)/ramdisk/init.zygote32.rc:root/init.zygote32.rc \
-    $(LOCAL_PATH)/ramdisk/init.trace.rc:root/init.trace.rc \
     $(LOCAL_PATH)/ramdisk/factory_init.project.rc:root/factory_init.project.rc \
     $(LOCAL_PATH)/ramdisk/factory_init.rc:root/factory_init.rc \
     $(LOCAL_PATH)/ramdisk/meta_init.rc:root/meta_init.rc \
     $(LOCAL_PATH)/ramdisk/meta_init.project.rc:root/meta_init.project.rc
+
+#    $(LOCAL_PATH)/ramdisk/init.usb.rc:root/init.usb.rc \
+#    $(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc \
+#    $(LOCAL_PATH)/ramdisk/init.zygote32.rc:root/init.zygote32.rc \
+#    $(LOCAL_PATH)/ramdisk/init.trace.rc:root/init.trace.rc \
 
 # Put standard fstab file (not used by TWRP : It uses /etc/twrp.fstab instead)
 PRODUCT_COPY_FILES += \
