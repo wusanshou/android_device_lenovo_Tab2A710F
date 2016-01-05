@@ -1,0 +1,2 @@
+#============= su ==============
+allow su surfaceflinger_service:service_manager add;
