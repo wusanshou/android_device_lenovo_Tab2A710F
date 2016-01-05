@@ -1,8 +1,0 @@
-#============= servicemanager ==============
-allow servicemanager init:dir search;
-
-#============= su ==============
-allow su surfaceflinger_service:service_manager add;
-
-#============= surfaceflinger ==============
-allow surfaceflinger device:chr_file { read write };
