@@ -19,6 +19,8 @@ TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_NEON := true
 
+TARGET_BUILD_VARIANT := eng
+TARGET_BUILD_TYPE := debug
 
 ################################# Define Flash topography 
 # ToDo : see if this parameter can be changed to match the Lenovo's name of Board
@@ -57,10 +59,13 @@ BOARD_SEPOLICY_DIRS := \
        device/lenovo/Tab2A710F/sepolicy
 
 BOARD_SEPOLICY_UNION := \
-       misc.te \
+       servicemanager.te \
+       su.te \
+       surfaceflinger.te \
        app.te \
        system.te \
        file_contexts
+
 
 
 ############################### Boot
