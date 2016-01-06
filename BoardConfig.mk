@@ -61,6 +61,7 @@ BOARD_SEPOLICY_DIRS := \
 BOARD_SEPOLICY_UNION := \
        servicemanager.te \
        su.te \
+       init.te \
        surfaceflinger.te \
        app.te \
        system.te \
