@@ -1,2 +1,2 @@
 #============= surfaceflinger ==============
-allow surfaceflinger device:chr_file { read write };
+allow surfaceflinger device:chr_file { open read write };
