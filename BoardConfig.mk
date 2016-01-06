@@ -63,6 +63,7 @@ BOARD_SEPOLICY_UNION := \
        su.te \
        init.te \
        surfaceflinger.te \
+       debuggerd.te \
        app.te \
        system.te \
        file_contexts
