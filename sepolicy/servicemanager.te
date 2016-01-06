@@ -1,2 +1,4 @@
 #============= servicemanager ==============
-allow servicemanager init:dir { search open read } ;
+allow servicemanager init:dir { search open read };
+allow servicemanager init:file {open read};
+allow servicemanager init:process getattr;
