@@ -81,7 +81,11 @@ on init
 #HWComposer fb0
     chmod 0666 /dev/graphics/fb0
     chown system graphics /dev/graphics/fb0
-
+    
+# PixNDom fix
+    chmod 0660 /dev/mali
+    chown system graphics /dev/mali
+    
 #HWComposer Vsync
     chmod 0666 /dev/mtkfb_vsync
     chown system graphics /dev/mtkfb_vsync
