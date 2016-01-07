@@ -83,7 +83,7 @@ on init
     chown system graphics /dev/graphics/fb0
     
 # PixNDom fix
-    chmod 0660 /dev/mali
+    chmod 0666 /dev/mali
     chown system graphics /dev/mali
     
 #HWComposer Vsync
