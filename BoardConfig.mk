@@ -22,6 +22,10 @@ ARCH_ARM_HAVE_NEON := true
 TARGET_BUILD_VARIANT := eng
 TARGET_BUILD_TYPE := debug
 
+# Only while development (expensive on boot ! )
+# Compile init to store a max of boot informations
+INIT_BOOTCHART := true
+
 ################################# Define Flash topography 
 # ToDo : see if this parameter can be changed to match the Lenovo's name of Board
 TARGET_BOOTLOADER_BOARD_NAME := Tab2A710F
