@@ -123,8 +123,9 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 
 # Force use of following .rc files for recovery.img
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TARGET_RECOVERY_INITRC := device/lenovo/Tab2A710F/recovery/init.rc 
-TARGET_RECOVERY_INITRC += device/lenovo/Tab2A710F/recovery/init.recovery.usb.rc 
+# Let Omnirom install the standard init.rc
+#TARGET_RECOVERY_INITRC := device/lenovo/Tab2A710F/recovery/init.rc 
+TARGET_RECOVERY_INITRC := device/lenovo/Tab2A710F/recovery/init.recovery.usb.rc 
 TARGET_RECOVERY_INITRC += device/lenovo/Tab2A710F/recovery/ueventd.rc 
 
 # Let recovery Android.mk expect a standard V2 recovery.fstab, to put it in root
