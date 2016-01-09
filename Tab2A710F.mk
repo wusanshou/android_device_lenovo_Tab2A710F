@@ -78,7 +78,6 @@ PRODUCT_PACKAGES += \
 # ramdisk : populate .rc files
 # copied from Stock Rom 5.0
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
     $(LOCAL_PATH)/ramdisk/init.environ.rc:root/init.environ.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.mt8127.rc:root/ueventd.mt8127.rc \
     $(LOCAL_PATH)/ramdisk/init.mt8127.rc:root/init.mt8127.rc \
@@ -92,6 +91,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/meta_init.rc:root/meta_init.rc \
     $(LOCAL_PATH)/ramdisk/meta_init.project.rc:root/meta_init.project.rc
 
+#    $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
 #    $(LOCAL_PATH)/ramdisk/init.usb.rc:root/init.usb.rc \
 #    $(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc \
 #    $(LOCAL_PATH)/ramdisk/init.zygote32.rc:root/init.zygote32.rc \
