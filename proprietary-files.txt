@@ -25,6 +25,7 @@ system/lib/libnvram_platform.so
 system/lib/libnvram_sec.so
 system/lib/libnvram.so
 system/lib/libspeech_enh_lib.so
+system/etc/audio_policy.conf
 
 # Bluetooth
 system/lib/libbluetooth_mtk.so
