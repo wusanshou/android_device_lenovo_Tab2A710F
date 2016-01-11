@@ -20,7 +20,7 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_NEON := true
 
 TARGET_BUILD_VARIANT := eng
-TARGET_BUILD_TYPE := debug
+# TARGET_BUILD_TYPE := debug
 
 # Only while development (expensive on boot ! )
 # Compile init to store a max of boot informations
@@ -71,9 +71,11 @@ BOARD_SEPOLICY_UNION := \
        debuggerd.te \
        app.te \
        system.te \
+       system_server.te \
+       mediaserver.te \
+       netd.te \
+       zygote.te \
        file_contexts
-
-
 
 ############################### Boot
 BOARD_USES_UBOOT := true		# pas sur mais probable

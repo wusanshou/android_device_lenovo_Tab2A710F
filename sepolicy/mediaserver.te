@@ -1,0 +1,4 @@
+#============= mediaserver ==============
+allow mediaserver block_device:dir { search };
+allow mediaserver device:chr_file { open read write };
+
