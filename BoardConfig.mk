@@ -71,9 +71,11 @@ BOARD_SEPOLICY_UNION := \
        debuggerd.te \
        app.te \
        system.te \
+       system_server.te \
+       mediaserver.te \
+       netd.te \
+       zygote.te \
        file_contexts
-
-
 
 ############################### Boot
 BOARD_USES_UBOOT := true		# pas sur mais probable
