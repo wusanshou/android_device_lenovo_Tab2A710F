@@ -1,8 +1,5 @@
 ## From https://github.com/TeamRegular/android_device_amazon_ford/blob/cm-12.1/proprietary-files.txt ##
 
-# pour xlog - temporaire ?
-system/lib/libcutils.so
-
 # Audio
 system/bin/audiocmdservice_atci
 system/lib/hw/audio.primary.mt8127.so
@@ -62,7 +59,6 @@ system/lib/libmpo.so
 system/lib/libmtkjpeg.so
 system/lib/libSwJpgCodec.so
 
-
 # Connectivity
 system/bin/6620_launcher
 #system/bin/wmt_loader
@@ -87,7 +83,6 @@ system/vendor/lib/libwvm.so
 system/vendor/lib/libWVStreamControlAPI_L3.so
 system/vendor/lib/mediadrm/libwvdrmengine.so
 
-
 # Graphics
 system/lib/egl/libEGL_mali.so
 system/lib/egl/libGLESv1_CM_mali.so
@@ -107,7 +102,6 @@ system/lib/libaal.so
 
 # Keystore HAL
 #system/lib/hw/keystore.mt8127.so
-system/lib/hw/keystore.default.so
 system/lib/liburee_meta_drmkeyinstall_v2.so
 system/lib/lib_uree_mtk_crypto.so
 
@@ -169,6 +163,8 @@ system/etc/.tp/thermal.conf
 # Wifi
 system/bin/wpa_supplicant
 
+# libmemtrack.so
+/system/lib/libmemtrack.so
 
 # Vendor
 system/vendor/app/Ds/Ds.apk
@@ -196,20 +192,9 @@ system/bin/mtkrild
 system/bin/mtkrildmd2
 system/bin/mtk_setprop
 system/etc/mtklog-config.prop
-#system/lib/egl/egl.cfg
-system/lib/hw/audio_policy.default.so
 system/lib/hw/audio_policy.stub.so
-system/lib/hw/audio.primary.default.so
 system/lib/hw/audio.r_submix.default.so
-system/lib/hw/audio.usb.default.so
-system/lib/hw/bluetooth.default.so
 system/lib/hw/gps.default.so
-system/lib/hw/gralloc.default.so
-system/lib/hw/local_time.default.so
-system/lib/hw/power.default.so
-system/lib/hw/vibrator.default.so
-system/lib/libaudiopolicymanagerdefault.so
-system/lib/libaudiopolicymanager.so
 system/lib/libbluetoothdrv.so
 system/lib/libbluetoothem_mtk.so
 system/lib/libBnMtkCodec.so
@@ -222,7 +207,6 @@ system/lib/libcustom_prop.so
 system/lib/libdrmmtkwhitelist.so
 system/lib/libextsys.so
 system/lib/libfeatureio.so
-system/lib/libhwui.so
 system/lib/libimageio_plat_drv.so
 system/lib/libimageio.so
 system/lib/libJpgEncPipe.so
@@ -243,4 +227,19 @@ system/lib/libspeech_enh_lib.so
 system/lib/libtz_uree.so
 system/lib/mtk-rilmd2.so
 system/lib/mtk-ril.so
+
+# enlevés 10/01/2015
+#system/lib/egl/egl.cfg
+#system/lib/hw/audio_policy.default.so
+#system/lib/hw/audio.primary.default.so
+#system/lib/hw/audio.usb.default.so
+#system/lib/hw/bluetooth.default.so
+#system/lib/hw/gralloc.default.so
+#system/lib/hw/keystore.default.so
+#system/lib/hw/local_time.default.so
+#system/lib/hw/power.default.so
+#system/lib/hw/vibrator.default.so
+#system/lib/libaudiopolicymanagerdefault.so
+#system/lib/libaudiopolicymanager.so
+#system/lib/libhwui.so
 
