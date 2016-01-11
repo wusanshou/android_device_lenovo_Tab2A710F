@@ -163,9 +163,6 @@ system/etc/.tp/thermal.conf
 # Wifi
 system/bin/wpa_supplicant
 
-# libmemtrack.so
-/system/lib/libmemtrack.so
-
 # Vendor
 system/vendor/app/Ds/Ds.apk
 system/vendor/app/DsUI/DsUI.apk
