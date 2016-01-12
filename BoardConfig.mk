@@ -153,6 +153,8 @@ TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone1/temp"
 
 ############################## End of Recovery parameters(TWRP)
 
+BOARD_USES_OVERLAY := true
+DEVICE_PACKAGE_OVERLAYS += device/lenovo/Tab2A710F/overlay
 
 # GFX - inspire de https://github.com/shutt1e/android_device_phonepad/blob/master/BoardConfig.mk )
 MTK_HWC_CHIP := mt8127
@@ -172,7 +174,6 @@ USE_OPENGL_RENDERER    := true
 #BOARD_NO_ALLOW_DEQUEUE_CURRENT_BUFFER := true
 #BOARD_USE_SKIA_LCDTEXT := true
 BOARD_USES_HGL := true
-BOARD_USES_OVERLAY := true
 BOARD_EGL_NEEDS_LEGACY_FB := true
 #TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
