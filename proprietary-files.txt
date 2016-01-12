@@ -185,6 +185,7 @@ system/app/MtkFloatMenu/MtkFloatMenu.apk
 system/app/MTKLogger/MTKLogger.apk
 system/bin/mtkbt
 system/bin/MtkCodecService
+system/etc/media_codecs.xml
 system/bin/mtkrild
 system/bin/mtkrildmd2
 system/bin/mtk_setprop
