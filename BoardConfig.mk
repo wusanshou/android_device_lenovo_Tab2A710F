@@ -38,6 +38,8 @@ MTK_HARDWARE := true
 BOARD_HAS_MTK := true
 TARGET_USE_UBOOT := true
 MTK_PLATFORM := mt8127
+# About MTK camera features
+MTKCAM_HAVE_AEE_FEATURE := false
 
 BOARD_KERNEL_CMDLINE :=	#androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000		# teste. d'apres la config du boot...
