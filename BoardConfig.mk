@@ -164,6 +164,8 @@ MTK_HWC_SUPPORT := true
 MTK_WFD_SUPPORT := true
 MTK_PQ_SUPPORT := true
 MTK_ION_SUPPORT := true
+MTK_HDMI_SUPPORT := false
+MTK_SENSOR_SUPPORT := true
 
 # EGL settings
 BOARD_EGL_CFG := device/lenovo/Tab2A710F/prebuilt/etc/egl.cfg
