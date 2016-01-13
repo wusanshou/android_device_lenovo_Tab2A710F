@@ -39,13 +39,9 @@ system/lib/libcam.device1.so
 system/lib/libcamdrv.so
 system/lib/libcamera_client_mtk.so
 system/lib/libcameracustom.so
-system/lib/libcam.exif.so
 system/lib/libcam_hwutils.so
-system/lib/libcam_mmp.so
 system/lib/libcam.paramsmgr.so
 system/lib/libcam_platform.so
-system/lib/libcam.utils.sensorlistener.so
-system/lib/libcam_utils.so
 system/lib/libcam.utils.so
 system/lib/libfeatureio.so
 system/lib/libGdmaScalerPipe.so
@@ -88,7 +84,6 @@ system/lib/egl/libEGL_mali.so
 system/lib/egl/libGLESv1_CM_mali.so
 system/lib/egl/libGLESv2_mali.so
 system/lib/hw/gralloc.mt8127.so
-system/lib/hw/hwcomposer.mt8127.so
 system/lib/libbwc.so
 system/lib/libdpframework.so
 system/lib/libgralloc_extra.so
@@ -107,7 +102,7 @@ system/lib/lib_uree_mtk_crypto.so
 
 # Light HAL
 #system/lib/hw/lights.mt8127.so
-system/lib/hw/lights.default.so
+##system/lib/hw/lights.default.so
 
 # MTK Thermal Manager
 #-system/app/MTKThermalManager/MTKThermalManager.apk
@@ -192,7 +187,6 @@ system/bin/mtk_setprop
 system/etc/mtklog-config.prop
 system/lib/hw/audio_policy.stub.so
 system/lib/hw/audio.r_submix.default.so
-system/lib/hw/gps.default.so
 system/lib/libbluetoothdrv.so
 system/lib/libbluetoothem_mtk.so
 system/lib/libBnMtkCodec.so
@@ -226,7 +220,7 @@ system/lib/libtz_uree.so
 system/lib/mtk-rilmd2.so
 system/lib/mtk-ril.so
 
-# enlevés 10/01/2015
+# enlevés 10/01/2016
 #system/lib/egl/egl.cfg
 #system/lib/hw/audio_policy.default.so
 #system/lib/hw/audio.primary.default.so
@@ -241,3 +235,13 @@ system/lib/mtk-ril.so
 #system/lib/libaudiopolicymanager.so
 #system/lib/libhwui.so
 
+# enlevés 13/01/2016 (hardware/mediatek repository )
+# GPS
+##system/lib/hw/gps.default.so
+# hwcomposer
+##system/lib/hw/hwcomposer.mt8127.so
+# mtkcam
+##system/lib/libcam.exif.so
+##system/lib/libcam_mmp.so
+##system/lib/libcam.utils.sensorlistener.so
+##system/lib/libcam_utils.so
