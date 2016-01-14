@@ -63,7 +63,8 @@ PRODUCT_PACKAGES += \
     libcam.metadata \
     libcam.exif \
     libcam_mmp \
-    libcam_utils 
+    libcam_utils \
+    libcam.utils.sensorlistener
 
 # inherit proprietary files
 $(call inherit-product, build/target/product/full_base.mk)
