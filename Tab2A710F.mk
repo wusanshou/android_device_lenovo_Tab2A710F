@@ -41,6 +41,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.bq.gpu_to_cpu_unsupported=1 \
 #    ro.opengles.version=196608 \
 
+# optional packages to compile
 PRODUCT_PACKAGES += \
     libnetcmdiface \
     libwpa_client \
@@ -48,8 +49,21 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     wpa_supplicant 
 
+# optional local package to compile (will become preloaded library )
 PRODUCT_PACKAGES += \
     libxlog
+
+# optional mediatek packages
+PRODUCT_PACKAGES += \
+    gps.default \
+    lights.default \
+    sensors.default \
+    hwcomposer.mt8127 \
+    libgralloc_extra \
+    libcam.metadata \
+    libcam.exif \
+    libcam_mmp \
+    libcam_utils 
 
 # inherit proprietary files
 $(call inherit-product, build/target/product/full_base.mk)

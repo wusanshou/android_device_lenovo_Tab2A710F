@@ -32,14 +32,10 @@ TARGET_BOOTLOADER_BOARD_NAME := Tab2A710F
 TARGET_OTA_ASSERT_DEVICE := Tab2A7-10F,Tab2_A7-10F,Tab2A710F
 BOARD_HAS_LARGE_FILESYSTEM := true      
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_HAS_MTK_HARDWARE := true
-MTK_HARDWARE := true
-BOARD_HAS_MTK := true
 TARGET_USE_UBOOT := true
-MTK_PLATFORM := mt8127
-# About MTK camera features
-MTKCAM_HAVE_AEE_FEATURE := false
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+
 
 BOARD_KERNEL_CMDLINE :=	#androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000		# teste. d'apres la config du boot...
@@ -155,10 +151,15 @@ TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone1/temp"
 
 ############################## End of Recovery parameters(TWRP)
 
+# resource files located in overlay will replace standard repository resources
 BOARD_USES_OVERLAY := true
 DEVICE_PACKAGE_OVERLAYS += device/lenovo/Tab2A710F/overlay
 
-# GFX - inspire de https://github.com/shutt1e/android_device_phonepad/blob/master/BoardConfig.mk )
+# Mediatek settings
+BOARD_HAS_MTK_HARDWARE := true
+MTK_HARDWARE := true
+BOARD_HAS_MTK := true
+MTK_PLATFORM := mt8127
 MTK_HWC_CHIP := mt8127
 MTK_HWC_SUPPORT := true
 MTK_WFD_SUPPORT := true
@@ -166,6 +167,10 @@ MTK_PQ_SUPPORT := true
 MTK_ION_SUPPORT := true
 MTK_HDMI_SUPPORT := false
 MTK_SENSOR_SUPPORT := true
+# About MTK camera features
+HAVE_AEE_FEATURE := no
+# To avoid MTK ril build (unused on tablet)
+GOOGLE_RELEASE_RIL := yes
 
 # EGL settings
 BOARD_EGL_CFG := device/lenovo/Tab2A710F/prebuilt/etc/egl.cfg
@@ -217,4 +222,3 @@ BOARD_HAVE_BLUETOOTH_MTK := true		# A tester
 ## From Lenovo's KitKat OSC package
 TARGET_NO_FACTORYIMAGE := true
 TARGET_KMODULES := true
-
