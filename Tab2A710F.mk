@@ -43,6 +43,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # optional packages to compile
 PRODUCT_PACKAGES += \
+    libion \
+    libemoji \
     libnetcmdiface \
     libwpa_client \
     hostapd \
