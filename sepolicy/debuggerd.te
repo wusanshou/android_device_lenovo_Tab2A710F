@@ -1,3 +1,6 @@
 #============= debuggerd ==============
 allow debuggerd graphics_device:chr_file { getattr open read write };
 allow debuggerd graphics_device:dir { search };
+
+# 16/01/2016
+allow debuggerd gpu_device:chr_file { read open };
