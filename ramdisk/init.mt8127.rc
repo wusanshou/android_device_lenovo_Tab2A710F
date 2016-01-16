@@ -137,8 +137,8 @@ on init
     chmod 0640 /dev/bootimg
     chown root system /dev/bootimg
 
-    chmod 0600 /dev/mntgpio
-    chown radio root /dev/mntgpio
+    chmod 0600 /dev/mtgpio
+    chown radio root /dev/mtgpio
 
 # PixNDom fix end ##################
 

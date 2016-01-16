@@ -33,6 +33,6 @@
 /dev/dkb                0660   root         system
 /dev/kb                 0660   root         system
 /dev/bootimg            0640   root         system
-/dev/mntgpio            0600   radio        root
+/dev/mtgpio            0600   radio        root
 
 
