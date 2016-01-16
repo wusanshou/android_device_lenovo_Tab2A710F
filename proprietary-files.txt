@@ -258,7 +258,7 @@ system/lib/mtk-ril.so
 # mtkcam
 ##system/lib/libcam.exif.so
 ##system/lib/libcam_mmp.so
-##system/lib/libcam.utils.sensorlistener.so
+##system/lib/
 ##system/lib/libcam_utils.so
 
 # remis 16/01/2016
