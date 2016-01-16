@@ -23,6 +23,8 @@ system/lib/libnvram_sec.so
 system/lib/libnvram.so
 system/lib/libspeech_enh_lib.so
 system/etc/audio_policy.conf
+system/lib/hw/audio_policy.stub.so
+system/lib/hw/audio.r_submix.default.so
 
 # Bluetooth
 system/lib/libbluetooth_mtk.so
@@ -157,11 +159,23 @@ system/etc/.tp/thermal.conf
 
 # Wifi
 system/bin/wpa_supplicant
+# ajout 16/01/2016
+system/etc/firmware/mt6627/mt6627_fm_v1_coeff.bin
+system/etc/firmware/mt6627/mt6627_fm_v3_coeff.bin
+system/etc/firmware/mt6627/mt6627_fm_v2_patch.bin
+system/etc/firmware/mt6627/mt6627_fm_v4_coeff.bin
+system/etc/firmware/mt6627/mt6627_fm_v5_coeff.bin
+system/etc/firmware/mt6627/mt6627_fm_v4_patch.bin
+system/etc/firmware/mt6627/mt6627_fm_v1_patch.bin
+system/etc/firmware/mt6627/mt6627_fm_v3_patch.bin
+system/etc/firmware/mt6627/mt6627_fm_v2_coeff.bin
+system/etc/firmware/mt6627/mt6627_fm_v5_patch.bin
+# /ajout
 
 # Vendor
 system/vendor/app/Ds/Ds.apk
 system/vendor/app/DsUI/DsUI.apk
-system/vendor/etc/audio_effects.conf
+# 16/01/2015 system/vendor/etc/audio_effects.conf
 system/vendor/etc/dolby/ds1-default.xml
 system/vendor/lib/hw/audio.a2dp.blueangel.so
 system/vendor/lib/hw/bluetooth.blueangel.so
@@ -185,8 +199,7 @@ system/bin/mtkrild
 system/bin/mtkrildmd2
 system/bin/mtk_setprop
 system/etc/mtklog-config.prop
-system/lib/hw/audio_policy.stub.so
-system/lib/hw/audio.r_submix.default.so
+
 system/lib/libbluetoothdrv.so
 system/lib/libbluetoothem_mtk.so
 system/lib/libBnMtkCodec.so
@@ -245,3 +258,6 @@ system/lib/mtk-ril.so
 ##system/lib/libcam_mmp.so
 ##system/lib/libcam.utils.sensorlistener.so
 ##system/lib/libcam_utils.so
+
+# remis 16/01/2016
+#system/lib/libgralloc_extra.so

@@ -96,8 +96,7 @@ on init
     chown system system /dev/stpwmt
 
 
-# 16/01/2016
-# phase 1 - ok
+# 16/01/2016 - ok sauf /dev/stp*
     chmod 0666 /dev/cpuctl
 
     chmod 0660 /dev/touch
@@ -106,7 +105,6 @@ on init
     chmod 0600 /dev/RT_Monitor
     chown system system /dev/RT_Monitor
 
-# phase 2 - test
     #chmod 0600 /dev/btif # dejà ok
     chown system system /dev/btif
 
@@ -139,6 +137,7 @@ on init
 
     chmod 0600 /dev/mtgpio
     chown radio root /dev/mtgpio
+# / 16/01/2016
 
 # PixNDom fix end ##################
 
