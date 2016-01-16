@@ -203,9 +203,9 @@ subsystem adf
 /dev/mali                0666    system graphics
 
 #touch
-/dev/touch              0660   root  system
+# 16/01/2016 /dev/touch              0660   root  system
 /dev/hotknot            0660   root  system
 
 #hang_detect
-/dev/RT_Monitor         0600   system  system
+# 16/01/2016 /dev/RT_Monitor         0600   system  system
 /dev/kick_powerkey      0600   system  system

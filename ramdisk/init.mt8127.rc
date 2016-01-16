@@ -84,7 +84,7 @@ on init
     chown system graphics /dev/graphics/fb0
     
 # PixNDom fix
-    chmod 0660 /dev/cpuctl
+# 16/01/2016    chmod 0660 /dev/cpuctl
     
     chmod 0666 /dev/mali
     chown system graphics /dev/mali
@@ -92,6 +92,16 @@ on init
     mknod /dev/stpwmt c 190 0;
     chmod 0660 /dev/stpwmt
     chown system system /dev/stpwmt
+
+# 16/01/2016
+    chmod 0666 /dev/cpuctl
+
+    chmod 0660 /dev/touch
+    chown root system /dev/touch
+
+    chmod 0660 /dev/RT_Monitor
+    chown system system /dev/RT_Monitor
+
 # PixNDom fix end ##################
 
 #HWComposer Vsync
