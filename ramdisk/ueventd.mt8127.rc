@@ -19,7 +19,20 @@
 /dev/mali0              0666   system      graphics
 /dev/gps                0660   gps          system
 
-# 16/01/2016 test
-/dev/touch              0660   root  system
-/dev/RT_Monitor         0600   system  system
+# 16/01/2016
+# phase 1 - ok
+/dev/touch              0660   root         system
+/dev/RT_Monitor         0600   system       system
+
+# phase 2 - test
+/dev/mt6605             0660   nfc          radio
+/dev/btif               0600   system       system
+/dev/nvram              0660   root         system
+/dev/misc               0660   root         system
+/dev/pro_info           0660   root         system
+/dev/dkb                0660   root         system
+/dev/kb                 0660   root         system
+/dev/bootimg            0640   root         system
+/dev/mntgpio            0600   radio        root
+
 
