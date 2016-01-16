@@ -59,7 +59,9 @@ system/lib/libSwJpgCodec.so
 
 # Connectivity
 system/bin/6620_launcher
-#system/bin/wmt_loader
+system/bin/wmt_loader
+system/bin/6620_wmt_lpbk
+system/bin/6620_wmt_concurrency
 system/etc/firmware/ROMv2_patch_1_0_hdr.bin
 system/etc/firmware/ROMv2_patch_1_1_hdr.bin
 system/etc/firmware/WIFI_RAM_CODE_8127
@@ -170,7 +172,7 @@ system/etc/firmware/mt6627/mt6627_fm_v1_patch.bin
 system/etc/firmware/mt6627/mt6627_fm_v3_patch.bin
 system/etc/firmware/mt6627/mt6627_fm_v2_coeff.bin
 system/etc/firmware/mt6627/mt6627_fm_v5_patch.bin
-# /ajout
+# /ajout 16/01/2016
 
 # Vendor
 system/vendor/app/Ds/Ds.apk
