@@ -235,6 +235,14 @@ system/lib/libtz_uree.so
 system/lib/mtk-rilmd2.so
 system/lib/mtk-ril.so
 
+# ajouts 16/01/2016
+system/lib/libstagefright_memutils.so
+system/lib/libvcodec_oal.so
+# / ajouts 16/01/2016
+
+
+#####################
+
 # enlevés 10/01/2016
 #system/lib/egl/egl.cfg
 #system/lib/hw/audio_policy.default.so
