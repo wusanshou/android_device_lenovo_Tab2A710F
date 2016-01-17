@@ -215,9 +215,9 @@ BOARD_USES_MTK_AUDIO := true			# A tester
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_MTK := true		# A tester
-#BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true    # A tester
-#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/micromax/a106/bluetooth	# A adapter et tester
+BOARD_HAVE_BLUETOOTH_MTK := true
+BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/Tab2A710F/bluetooth
 
 ## From Lenovo's KitKat OSC package
 TARGET_NO_FACTORYIMAGE := true

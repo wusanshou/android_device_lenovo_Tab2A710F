@@ -43,13 +43,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # optional packages to compile
 PRODUCT_PACKAGES += \
-    libion \
     libemoji \
     libnetcmdiface \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant 
+
+#    libion \
 
 # optional local package to compile (will become preloaded library )
 PRODUCT_PACKAGES += \
@@ -77,8 +78,6 @@ $(call inherit-product-if-exists, framework/base/data/videos/VideoPackage2.mk)
 PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory \
-    audio.a2dp.default \
-    audio.usb.default \
     libaudioutils \
     libtinyalsa \
     l2ping \
@@ -86,11 +85,14 @@ PRODUCT_PACKAGES += \
     hcitool \
     librs_jni \
     setup_fs \
-    liba2dp \
     tinymix \
     tinyplay \
     tinycap \
-    tinyrec 
+    tinyrec \
+    audio.usb.default \
+    audio.a2dp.default \
+    liba2dp \
+    libbt-vendor
 
 # ramdisk : populate .rc files
 # copied from Stock Rom 5.0
