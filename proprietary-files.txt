@@ -241,6 +241,7 @@ system/lib/libvcodec_oal.so
 # / ajouts 16/01/2016
 
 # ajouts 18/01/2016
+system/lib/libwapi.so
 system/bin/btconfig
 system/etc/bluetooth/btconfig.xml
 # / ajouts 18/01/2016
