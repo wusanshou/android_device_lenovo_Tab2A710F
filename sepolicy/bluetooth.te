@@ -1,0 +1,2 @@
+allow bluetooth device:chr_file { open read write };
+allow bluetooth block_device:dir { search };

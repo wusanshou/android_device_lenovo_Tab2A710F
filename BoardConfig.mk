@@ -71,7 +71,9 @@ BOARD_SEPOLICY_UNION := \
        system.te \
        system_server.te \
        mediaserver.te \
+       system_app.te \
        netd.te \
+       bluetooth.te \
        zygote.te \
        file_contexts
 
