@@ -160,7 +160,7 @@ system/bin/thermald
 system/etc/.tp/thermal.conf
 
 # Wifi
-system/bin/wpa_supplicant
+# system/bin/wpa_supplicant
 # ajout 16/01/2016
 system/etc/firmware/mt6627/mt6627_fm_v1_coeff.bin
 system/etc/firmware/mt6627/mt6627_fm_v3_coeff.bin
