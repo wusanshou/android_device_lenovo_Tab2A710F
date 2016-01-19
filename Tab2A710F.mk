@@ -45,9 +45,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libemoji \
     libnetcmdiface \
-    libwpa_client \
-    hostapd \
     dhcpcd.conf \
+    hostapd \
+    libwpa_client \
+    wpa_cli \
     wpa_supplicant 
 
 #    libion \
