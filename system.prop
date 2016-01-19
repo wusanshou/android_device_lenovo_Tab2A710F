@@ -41,7 +41,7 @@ wifi.interface=wlan0
 ro.mediatek.wlan.wsc=1
 # MTK, mtk03034 20101210}
 # MTK, mtk03034, 20110318 {
-ro.mediatek.wlan.p2p=1
+#ro.mediatek.wlan.p2p=1
 # MTK, mtk03034 20110318}
 
 # MTK, mtk03034, 20101213 {
@@ -49,10 +49,10 @@ mediatek.wlan.ctia=0
 # MTK, mtk03034 20101213}
 
 #
-wifi.tethering.interface=ap0
+#wifi.tethering.interface=ap0
 #
 
-wifi.direct.interface=p2p0
+#wifi.direct.interface=p2p0
 
 
 # Switching Menu of Mass storage and MTP
@@ -122,7 +122,7 @@ ro.mtk_wfd_hdcp_tx_support=1
 ro.mtk_perfservice_support=1
 ro.mtk_audio_change_support=1
 ro.mtk_owner_sdcard_support=1
-ro.mtk_owner_sim_support=1
+ro.mtk_owner_sim_support=0
 ro.mtk_cta_set=1
 ro.mtk_multi_patition=1
 ro.mtk_drm_key_mng_support=1
