@@ -401,7 +401,7 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
     return ret;
 }
 
-/*
+
 int wpa_driver_set_p2p_noa(void *priv, u8 count, int start, int duration)
 {
 	struct i802_bss *bss = priv;
@@ -439,4 +439,4 @@ int wpa_driver_set_ap_wps_p2p_ie(void *priv, const struct wpabuf *beacon,
 	wpa_printf(MSG_DEBUG, "iface %s set_ap_wps_p2p_ie, ignored"); 
 	return -1;
 }
-*/
+
