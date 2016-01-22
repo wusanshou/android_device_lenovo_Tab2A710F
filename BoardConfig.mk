@@ -169,6 +169,8 @@ MTK_PQ_SUPPORT := true
 MTK_ION_SUPPORT := true
 MTK_HDMI_SUPPORT := false
 MTK_SENSOR_SUPPORT := true
+MTK_AUDIO_APE_SUPPORT := yes
+
 # About MTK camera features
 HAVE_AEE_FEATURE := no
 # To avoid MTK ril build (unused on tablet)
