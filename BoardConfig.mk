@@ -86,14 +86,17 @@ MTK_KERNEL_POWER_OFF_CHARGING := true	# A tester, ok pour le recovery
 #BOARD_CUSTOM_BOOTIMG := true		# A tester ?
 #BOARD_CUSTOM_BOOTIMG_MK := device/lenovo/Tab2A710F/boot.mk	# A tester ?
 
-
 ############################## Kernel parameters to use ##########
+# ProjectConfig.mk should be used to generate _defconfig file to build kernel ?
+MTK_TARGET_PROJECT_FOLDER := device/lenovo/Tab2A710F/project
+
 # activate following parameter to use a prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel
+#TARGET_PREBUILT_KERNEL := device/lenovo/Tab2A710F/prebuilt/kernel
 
 # activate following parameter to build the normal kernel
 # config file located in kernel/lenovo/Tab2A710F/arch/arm/configs/
-#TARGET_KERNEL_CONFIG := bitland8127_tb_l_defconfig		  
+# config file located in kernel/mediatek/arch/arm/configs/
+TARGET_KERNEL_CONFIG := mt8127_PixNDom_defconfig		  
 
 # activate following parameter to build a debug kernel
 #TARGET_KERNEL_CONFIG := bitland8127_tb_l_debug_defconfig
